@@ -2,6 +2,9 @@
 #include "surface.h"
 #include <cstdio> //printf
 
+#include "Character.h"
+#include "CharacterController.h"
+#include "Input.h"
 #include "TileMap.h"
 
 namespace Tmpl8
@@ -9,6 +12,11 @@ namespace Tmpl8
 	Surface* ground_sheet;
 	TileMapData* tileMapData;
 	TileMap* tileMap;
+	Character* character;
+	CharacterController* controller;
+	Input* input;
+
+	float Game::deltaTime;
 
 	char map[TileMap::ROWS][TileMap::COLS * TileMap::DATA_AMOUNT] = {
 		"af eb eb af fe ad ee ee fb fa fb db eb",
@@ -29,6 +37,10 @@ namespace Tmpl8
 		ground_sheet = new Surface("assets/ground_sheet.png");
 		tileMapData =  new TileMapData(424, 64, 8, ground_sheet);
 		tileMap = new TileMap(map, *tileMapData);
+
+		character = new Character();
+		input = new Input();
+		controller = new CharacterController(character, input);
 	}
 
 	// -----------------------------------------------------------
@@ -39,12 +51,26 @@ namespace Tmpl8
 		delete ground_sheet;
 		delete tileMapData;
 		delete tileMap;
+
+		delete character;
+		delete input;
 	}
 	// -----------------------------------------------------------
 	// Main application tick function
 	// -----------------------------------------------------------
 	void Game::Tick(float deltaTime)
 	{
+		Game::deltaTime = deltaTime;
+		input->Poll();
+
+		controller->ApplyMovement();
+
 		tileMap->Draw(screen);
+		character->Draw(screen);
+	}
+
+	float Game::GetDeltaTime()
+	{
+		return deltaTime;
 	}
 };

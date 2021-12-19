@@ -222,14 +222,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Character.cpp" />
+    <ClCompile Include="CharacterController.cpp" />
     <ClCompile Include="game.cpp" />
+    <ClCompile Include="Input.cpp" />
     <ClCompile Include="surface.cpp" />
     <ClCompile Include="template.cpp" />
     <ClCompile Include="TileMap.cpp" />
     <ClCompile Include="TileMapData.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Character.h" />
+    <ClInclude Include="CharacterController.h" />
     <ClInclude Include="game.h" />
+    <ClInclude Include="IInput.h" />
+    <ClInclude Include="Input.h" />
     <ClInclude Include="surface.h" />
     <ClInclude Include="template.h" />
     <ClInclude Include="TileMap.h" />
