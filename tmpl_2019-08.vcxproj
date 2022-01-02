@@ -228,6 +228,7 @@
     <ClCompile Include="game.cpp" />
     <ClCompile Include="ImpCharacter.cpp" />
     <ClCompile Include="Input.cpp" />
+    <ClCompile Include="ProximityFollower.cpp" />
     <ClCompile Include="SantaCharacter.cpp" />
     <ClCompile Include="Snowball.cpp" />
     <ClCompile Include="surface.cpp" />
@@ -246,6 +247,7 @@
     <ClInclude Include="Input.h" />
     <ClInclude Include="IShooter.h" />
     <ClInclude Include="IUpdatable.h" />
+    <ClInclude Include="ProximityFollower.h" />
     <ClInclude Include="SantaCharacter.h" />
     <ClInclude Include="Snowball.h" />
     <ClInclude Include="surface.h" />

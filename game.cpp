@@ -11,6 +11,7 @@
 #include "SantaCharacter.h"
 #include "ImpCharacter.h"
 #include "IUpdatable.h"
+#include "ProximityFollower.h"
 
 namespace Tmpl8
 {
@@ -22,6 +23,7 @@ namespace Tmpl8
 	Input* input;
 
 	ImpCharacter* imp;
+	ProximityFollower* proximityFollower;
 
 	std::vector<IDrawable*>* drawables;
 	std::vector<IUpdatable*>* updatables;
@@ -50,11 +52,13 @@ namespace Tmpl8
 		tileMapData =  new TileMapData(424, 64, 8, ground_sheet);
 		tileMap = new TileMap(map, *tileMapData);
 
-		character = new SantaCharacter();
 		input = new Input();
 
-		imp = new ImpCharacter();
-		controller = new CharacterController(imp, input);
+		character = new SantaCharacter(0.2f);
+		controller = new CharacterController(character, input);
+
+		imp = new ImpCharacter(0.09f);
+		proximityFollower = new ProximityFollower(imp, character, 250);
 
 		drawables = new std::vector<IDrawable*>();
 		updatables = new std::vector<IUpdatable*>();
@@ -63,6 +67,7 @@ namespace Tmpl8
 		drawables->push_back(imp);
 		drawables->push_back(character);
 
+		updatables->push_back(proximityFollower);
 		updatables->push_back(imp);
 		updatables->push_back(character);
 		updatables->push_back(input);

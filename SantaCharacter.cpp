@@ -1,7 +1,7 @@
 #include "SantaCharacter.h"
 #include <iostream>
 
-SantaCharacter::SantaCharacter() : Character("assets/character_sheet.png", 7), movementFrameCounter(0)
+SantaCharacter::SantaCharacter(float speed) : Character("assets/character_sheet.png", 7, speed), movementFrameCounter(0)
 {
 	shooter = new CharacterShooter;
 }

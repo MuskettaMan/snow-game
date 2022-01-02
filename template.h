@@ -100,6 +100,7 @@ public:
 	vec2 normalized() { float l = length(); float r = l > 0 ? 1.0f / l : 0; return vec2(x * r, y * r); }
 	void normalize() { float r = 1.0f / length(); x *= r; y *= r; }
 	static vec2 normalize( vec2 v ) { return v.normalized(); }
+	static float distance(vec2 a, vec2 b) { return (a - b).length(); }
 	float dot( const vec2& operand ) const { return x * operand.x + y * operand.y; }
 };
 

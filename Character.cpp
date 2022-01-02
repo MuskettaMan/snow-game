@@ -7,7 +7,7 @@
 void Character::Move(vec2 direction)
 {
 	isMoving = direction != vec2(0, 0);
-	velocity = direction.normalized() * Game::GetDeltaTime() * 0.2f;
+	velocity = direction.normalized() * Game::GetDeltaTime() * speed;
 
 	if (isMoving)
 		lastMovingDirection = direction;
@@ -49,7 +49,7 @@ Sprite* Character::GetSprite() const
 
 void Character::Shoot() {}
 
-Character::Character(char* sheet, int frames) : position(vec2(100, 100)), isMoving(false), lastMovingDirection(vec2(1, 0)), isFacingRight(true)
+Character::Character(char* sheet, int frames, float speed) : position(vec2(100, 100)), isMoving(false), lastMovingDirection(vec2(1, 0)), isFacingRight(true), speed(speed)
 {
 	sprite = new Sprite(new Surface(sheet), frames);
 	sprite->SetFrame(0);

@@ -10,7 +10,7 @@ using namespace Tmpl8;
 class Character : public IDrawable, public IUpdatable
 {
 public:
-	Character(char* sheet, int frames);
+	Character(char* sheet, int frames, float speed);
 	~Character();
 	virtual void Move(vec2 direction);
 	virtual void Shoot();
@@ -29,5 +29,6 @@ private:
 	vec2 velocity;
 	vec2 lastMovingDirection;
 	bool isFacingRight;
+	float speed;
 };
 

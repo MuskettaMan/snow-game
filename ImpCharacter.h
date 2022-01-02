@@ -3,7 +3,7 @@
 class ImpCharacter : public Character
 {
 public:
-	ImpCharacter();
+	ImpCharacter(float speed);
 	~ImpCharacter();
 	void Draw(Surface* screen) override;
 private:
