@@ -1,6 +1,7 @@
 #pragma once
 #include "IInput.h"
-class Input : public IInput
+#include "IUpdatable.h"
+class Input : public IInput, public IUpdatable
 {
 public:
 	bool GetUpKeyPressed() override;
@@ -8,7 +9,7 @@ public:
 	bool GetLeftKeyPressed() override;
 	bool GetRightKeyPressed() override;
 	bool GetSpaceKeyPressed() override;
-	void Poll();
+	void Update() override;
 
 private:
 	bool up, down, left, right, space;

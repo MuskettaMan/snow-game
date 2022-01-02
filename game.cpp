@@ -2,20 +2,26 @@
 #include "surface.h"
 #include <cstdio> //printf
 #include <iostream>
+#include <vector>
 
 #include "Character.h"
 #include "CharacterController.h"
 #include "Input.h"
 #include "TileMap.h"
+#include "SantaCharacter.h"
+#include "IUpdatable.h"
 
 namespace Tmpl8
 {
 	Surface* ground_sheet;
 	TileMapData* tileMapData;
 	TileMap* tileMap;
-	Character* character;
+	SantaCharacter* character;
 	CharacterController* controller;
 	Input* input;
+
+	std::vector<IDrawable*>* drawables;
+	std::vector<IUpdatable*>* updatables;
 
 	float Game::deltaTime;
 	float Game::time;
@@ -41,9 +47,17 @@ namespace Tmpl8
 		tileMapData =  new TileMapData(424, 64, 8, ground_sheet);
 		tileMap = new TileMap(map, *tileMapData);
 
-		character = new Character();
+		character = new SantaCharacter();
 		input = new Input();
 		controller = new CharacterController(character, input);
+
+		drawables = new std::vector<IDrawable*>();
+		updatables = new std::vector<IUpdatable*>();
+
+		drawables->push_back(tileMap);
+		drawables->push_back(character);
+		updatables->push_back(character);
+		updatables->push_back(input);
 	}
 
 	// -----------------------------------------------------------
@@ -65,12 +79,18 @@ namespace Tmpl8
 	{
 		Game::deltaTime = deltaTime;
 		Game::time += deltaTime;
-		input->Poll();
 
 		controller->ApplyMovement();
 
-		tileMap->Draw(screen);
-		character->Draw(screen);
+		for (int i = 0; i < updatables->size(); i++)
+		{
+			(*updatables)[i]->Update();
+		}
+
+		for (int i = 0; i < drawables->size(); i++)
+		{
+			(*drawables)[i]->Draw(screen);
+		}
 	}
 
 	float Game::GetDeltaTime()

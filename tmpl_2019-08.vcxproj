@@ -227,6 +227,7 @@
     <ClCompile Include="CharacterShooter.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="Input.cpp" />
+    <ClCompile Include="SantaCharacter.cpp" />
     <ClCompile Include="Snowball.cpp" />
     <ClCompile Include="surface.cpp" />
     <ClCompile Include="template.cpp" />
@@ -238,9 +239,12 @@
     <ClInclude Include="CharacterController.h" />
     <ClInclude Include="CharacterShooter.h" />
     <ClInclude Include="game.h" />
+    <ClInclude Include="IDrawable.h" />
     <ClInclude Include="IInput.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="IShooter.h" />
+    <ClInclude Include="IUpdatable.h" />
+    <ClInclude Include="SantaCharacter.h" />
     <ClInclude Include="Snowball.h" />
     <ClInclude Include="surface.h" />
     <ClInclude Include="template.h" />

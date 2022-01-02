@@ -1,8 +1,9 @@
 #pragma once
 #include "surface.h"
 #include "TileMapData.h"
+#include "IDrawable.h"
 
-class TileMap
+class TileMap : public IDrawable
 {
 public:
 	static const int ROWS = 8;

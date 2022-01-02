@@ -16,45 +16,44 @@ void Character::Move(vec2 direction)
 		isFacingRight = velocity.x > 0;
 
 	position += velocity;
-
-	shooter->Update();
 }
 
-void Character::Draw(Surface* screen)
+void Character::Update()
 {
-	if(isMoving)
-	{
-		++movementFrameCounter;
-		int frameRange = movementFrameCounter / 12 % 3;
-		if (isFacingRight)
-			sprite->SetFrame(frameRange + 4);
-		else
-			sprite->SetFrame(frameRange + 1);
-	}
-	else
-	{
-		sprite->SetFrame(isFacingRight ? 0 : 1);
-	}
-
-	shooter->Draw(screen);
-
-	sprite->Draw(screen, position.x, position.y);
 }
 
-void Character::Shoot() const
+bool Character::GetIsMoving() const
 {
-	shooter->Shoot(position + vec2(sprite->GetWidth() / 2, sprite->GetHeight() / 2), lastMovingDirection);
+	return isMoving;
 }
 
-Character::Character() : position(vec2(100, 100)), isMoving(false), lastMovingDirection(vec2(1, 0)), isFacingRight(true), movementFrameCounter(0)
+bool Character::GetIsFacingRight() const
 {
-	sprite = new Sprite(new Surface("assets/character_sheet.png"), 7);
+	return isFacingRight;
+}
+
+vec2 Character::GetPosition() const
+{
+	return position;
+}
+
+vec2 Character::GetLastMovingDirection() const
+{
+	return lastMovingDirection;
+}
+
+Sprite* Character::GetSprite() const
+{
+	return sprite;
+}
+
+Character::Character(char* sheet) : position(vec2(100, 100)), isMoving(false), lastMovingDirection(vec2(1, 0)), isFacingRight(true)
+{
+	sprite = new Sprite(new Surface(sheet), 7);
 	sprite->SetFrame(1);
-	shooter = new CharacterShooter;
 }
 
 Character::~Character()
 {
 	delete sprite;
-	delete shooter;
 }

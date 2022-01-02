@@ -27,7 +27,7 @@ bool Input::GetSpaceKeyPressed()
 	return space;
 }
 
-void Input::Poll()
+void Input::Update()
 {
 	left = GetAsyncKeyState(VK_LEFT);
 	right = GetAsyncKeyState(VK_RIGHT);

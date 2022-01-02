@@ -3,8 +3,9 @@
 
 #include "IShooter.h"
 #include "Snowball.h"
+#include "IUpdatable.h"
 
-class CharacterShooter : IShooter
+class CharacterShooter : IShooter, public IUpdatable
 {
 public:
 	CharacterShooter();

@@ -1,15 +1,15 @@
 #pragma once
-#include "Character.h"
+#include "SantaCharacter.h"
 #include "IInput.h"
 
 class CharacterController
 {
 public:
-	CharacterController(Character* character, IInput* input);
+	CharacterController(SantaCharacter* character, IInput* input);
 	void ApplyMovement();
 
 private:
-	Character* character;
+	SantaCharacter* character;
 	IInput* input;
 };
 
