@@ -1,4 +1,5 @@
 #pragma once
+#include "CharacterShooter.h"
 #include "surface.h"
 #include "template.h"
 
@@ -9,6 +10,7 @@ class Character
 public:
 	void Move(vec2 direction);
 	void Draw(Surface* screen);
+	void Shoot() const;
 	Character();
 	~Character();
 private:
@@ -16,7 +18,9 @@ private:
 	Sprite* sprite;
 	bool isMoving;
 	vec2 velocity;
+	vec2 lastMovingDirection;
 	bool isFacingRight;
 	uint movementFrameCounter;
+	CharacterShooter* shooter;
 };
 

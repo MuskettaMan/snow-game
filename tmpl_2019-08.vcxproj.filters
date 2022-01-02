@@ -10,9 +10,19 @@
     </ClCompile>
     <ClCompile Include="TileMap.cpp" />
     <ClCompile Include="TileMapData.cpp" />
-    <ClCompile Include="Character.cpp" />
-    <ClCompile Include="Input.cpp" />
-    <ClCompile Include="CharacterController.cpp" />
+    <ClCompile Include="CharacterController.cpp">
+      <Filter>Character</Filter>
+    </ClCompile>
+    <ClCompile Include="Character.cpp">
+      <Filter>Character</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterShooter.cpp">
+      <Filter>Character</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>Character</Filter>
+    </ClCompile>
+    <ClCompile Include="Snowball.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h" />
@@ -24,14 +34,32 @@
     </ClInclude>
     <ClInclude Include="TileMap.h" />
     <ClInclude Include="TileMapData.h" />
-    <ClInclude Include="Character.h" />
-    <ClInclude Include="IInput.h" />
-    <ClInclude Include="Input.h" />
-    <ClInclude Include="CharacterController.h" />
+    <ClInclude Include="Character.h">
+      <Filter>Character</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterController.h">
+      <Filter>Character</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterShooter.h">
+      <Filter>Character</Filter>
+    </ClInclude>
+    <ClInclude Include="IInput.h">
+      <Filter>Character</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>Character</Filter>
+    </ClInclude>
+    <ClInclude Include="IShooter.h">
+      <Filter>Character</Filter>
+    </ClInclude>
+    <ClInclude Include="Snowball.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="template code">
       <UniqueIdentifier>{bf32dd6e-4be7-4889-8ac6-49e7ee163c40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Character">
+      <UniqueIdentifier>{f83c9cc6-31df-48b6-aac9-8aa13adb9410}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

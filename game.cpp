@@ -1,6 +1,7 @@
 #include "game.h"
 #include "surface.h"
 #include <cstdio> //printf
+#include <iostream>
 
 #include "Character.h"
 #include "CharacterController.h"
@@ -17,6 +18,7 @@ namespace Tmpl8
 	Input* input;
 
 	float Game::deltaTime;
+	float Game::time;
 
 	char map[TileMap::ROWS][TileMap::COLS * TileMap::DATA_AMOUNT] = {
 		"af eb eb af fe ad ee ee fb fa fb db eb",
@@ -28,6 +30,7 @@ namespace Tmpl8
 		"ec eb af eb bc ba bb ba bb fd eb eb eb",
 		"eb ec eb ec eb eb eb fe eb eb ec eb fe"
 	};
+
 
 	// -----------------------------------------------------------
 	// Initialize the application
@@ -61,6 +64,7 @@ namespace Tmpl8
 	void Game::Tick(float deltaTime)
 	{
 		Game::deltaTime = deltaTime;
+		Game::time += deltaTime;
 		input->Poll();
 
 		controller->ApplyMovement();
@@ -72,5 +76,10 @@ namespace Tmpl8
 	float Game::GetDeltaTime()
 	{
 		return deltaTime;
+	}
+
+	float Game::GetTime()
+	{
+		return time;
 	}
 };

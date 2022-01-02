@@ -23,5 +23,8 @@ void CharacterController::ApplyMovement()
 	if (input->GetUpKeyPressed() && input->GetDownKeyPressed())
 		direction.y = 0;
 
+	if (input->GetSpaceKeyPressed())
+		character->Shoot();
+
 	character->Move(direction);
 }

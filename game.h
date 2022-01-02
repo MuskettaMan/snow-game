@@ -17,9 +17,11 @@ public:
 	void KeyDown( int key ) { /* implement if you want to handle keys */ }
 
 	static float GetDeltaTime();
+	static float GetTime();
 private:
 	Surface* screen;
 	static float deltaTime;
+	static float time;
 };
 
 }; // namespace Tmpl8

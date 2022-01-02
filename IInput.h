@@ -7,5 +7,6 @@ public:
 	virtual bool GetDownKeyPressed() = 0;
 	virtual bool GetLeftKeyPressed() = 0;
 	virtual bool GetRightKeyPressed() = 0;
+	virtual bool GetSpaceKeyPressed() = 0;
 };
 

@@ -22,10 +22,16 @@ bool Input::GetRightKeyPressed()
 	return right;
 }
 
+bool Input::GetSpaceKeyPressed()
+{
+	return space;
+}
+
 void Input::Poll()
 {
 	left = GetAsyncKeyState(VK_LEFT);
 	right = GetAsyncKeyState(VK_RIGHT);
 	up = GetAsyncKeyState(VK_UP);
 	down = GetAsyncKeyState(VK_DOWN);
+	space = GetAsyncKeyState(VK_SPACE);
 }
