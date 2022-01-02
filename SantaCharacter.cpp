@@ -1,7 +1,7 @@
 #include "SantaCharacter.h"
 #include <iostream>
 
-SantaCharacter::SantaCharacter() : Character("assets/character_sheet.png"), movementFrameCounter(0)
+SantaCharacter::SantaCharacter() : Character("assets/character_sheet.png", 7), movementFrameCounter(0)
 {
 	shooter = new CharacterShooter;
 }
@@ -11,7 +11,7 @@ SantaCharacter::~SantaCharacter()
 	delete shooter;
 }
 
-void SantaCharacter::Shoot() const
+void SantaCharacter::Shoot()
 {
 	shooter->Shoot(GetPosition() + vec2(GetSprite()->GetWidth() / 2, GetSprite()->GetHeight() / 2), GetLastMovingDirection());
 }

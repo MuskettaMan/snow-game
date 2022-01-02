@@ -9,6 +9,7 @@
 #include "Input.h"
 #include "TileMap.h"
 #include "SantaCharacter.h"
+#include "ImpCharacter.h"
 #include "IUpdatable.h"
 
 namespace Tmpl8
@@ -19,6 +20,8 @@ namespace Tmpl8
 	SantaCharacter* character;
 	CharacterController* controller;
 	Input* input;
+
+	ImpCharacter* imp;
 
 	std::vector<IDrawable*>* drawables;
 	std::vector<IUpdatable*>* updatables;
@@ -49,13 +52,18 @@ namespace Tmpl8
 
 		character = new SantaCharacter();
 		input = new Input();
-		controller = new CharacterController(character, input);
+
+		imp = new ImpCharacter();
+		controller = new CharacterController(imp, input);
 
 		drawables = new std::vector<IDrawable*>();
 		updatables = new std::vector<IUpdatable*>();
 
 		drawables->push_back(tileMap);
+		drawables->push_back(imp);
 		drawables->push_back(character);
+
+		updatables->push_back(imp);
 		updatables->push_back(character);
 		updatables->push_back(input);
 	}
@@ -65,6 +73,9 @@ namespace Tmpl8
 	// -----------------------------------------------------------
 	void Game::Shutdown()
 	{
+		delete drawables;
+		delete updatables;
+
 		delete ground_sheet;
 		delete tileMapData;
 		delete tileMap;

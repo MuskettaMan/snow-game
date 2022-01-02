@@ -26,6 +26,7 @@
     <ClCompile Include="SantaCharacter.cpp">
       <Filter>Character</Filter>
     </ClCompile>
+    <ClCompile Include="ImpCharacter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h" />
@@ -61,6 +62,7 @@
     </ClInclude>
     <ClInclude Include="IUpdatable.h" />
     <ClInclude Include="IDrawable.h" />
+    <ClInclude Include="ImpCharacter.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="template code">

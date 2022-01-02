@@ -47,10 +47,12 @@ Sprite* Character::GetSprite() const
 	return sprite;
 }
 
-Character::Character(char* sheet) : position(vec2(100, 100)), isMoving(false), lastMovingDirection(vec2(1, 0)), isFacingRight(true)
+void Character::Shoot() {}
+
+Character::Character(char* sheet, int frames) : position(vec2(100, 100)), isMoving(false), lastMovingDirection(vec2(1, 0)), isFacingRight(true)
 {
-	sprite = new Sprite(new Surface(sheet), 7);
-	sprite->SetFrame(1);
+	sprite = new Sprite(new Surface(sheet), frames);
+	sprite->SetFrame(0);
 }
 
 Character::~Character()

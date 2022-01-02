@@ -226,6 +226,7 @@
     <ClCompile Include="CharacterController.cpp" />
     <ClCompile Include="CharacterShooter.cpp" />
     <ClCompile Include="game.cpp" />
+    <ClCompile Include="ImpCharacter.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="SantaCharacter.cpp" />
     <ClCompile Include="Snowball.cpp" />
@@ -241,6 +242,7 @@
     <ClInclude Include="game.h" />
     <ClInclude Include="IDrawable.h" />
     <ClInclude Include="IInput.h" />
+    <ClInclude Include="ImpCharacter.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="IShooter.h" />
     <ClInclude Include="IUpdatable.h" />

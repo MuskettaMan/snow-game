@@ -10,9 +10,10 @@ using namespace Tmpl8;
 class Character : public IDrawable, public IUpdatable
 {
 public:
-	Character(char* sheet);
+	Character(char* sheet, int frames);
 	~Character();
 	virtual void Move(vec2 direction);
+	virtual void Shoot();
 	virtual void Draw(Surface* screen) = 0;
 	virtual void Update();
 	bool GetIsMoving() const;

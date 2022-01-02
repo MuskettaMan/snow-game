@@ -8,7 +8,7 @@ public:
 	~SantaCharacter();
 	void Draw(Surface* screen) override;
 	void Update() override;
-	void Shoot() const;
+	void Shoot() override;
 private:
 	CharacterShooter* shooter;
 	uint movementFrameCounter;

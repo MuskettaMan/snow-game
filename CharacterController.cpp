@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-CharacterController::CharacterController(SantaCharacter* character, IInput* input) : character(character), input(input)
+CharacterController::CharacterController(Character* character, IInput* input) : character(character), input(input)
 {
 }
 
