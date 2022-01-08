@@ -12,6 +12,8 @@
 #include "ImpCharacter.h"
 #include "IUpdatable.h"
 #include "ProximityFollower.h"
+#include "ColliderLibrary.h"
+#include "ColliderSystem.h"
 
 namespace Tmpl8
 {
@@ -24,6 +26,8 @@ namespace Tmpl8
 
 	ImpCharacter* imp;
 	ProximityFollower* proximityFollower;
+
+	ColliderSystem* colliderSystem;
 
 	std::vector<IDrawable*>* drawables;
 	std::vector<IUpdatable*>* updatables;
@@ -60,6 +64,10 @@ namespace Tmpl8
 		imp = new ImpCharacter(0.09f);
 		proximityFollower = new ProximityFollower(imp, character, 250);
 
+		colliderSystem = new ColliderSystem();
+		colliderSystem->Register(character->GetCollider());
+		colliderSystem->Register(imp->GetCollider());
+
 		drawables = new std::vector<IDrawable*>();
 		updatables = new std::vector<IUpdatable*>();
 
@@ -67,6 +75,8 @@ namespace Tmpl8
 		drawables->push_back(imp);
 		drawables->push_back(character);
 
+		updatables->push_back(colliderSystem);
+		updatables->push_back(controller);
 		updatables->push_back(proximityFollower);
 		updatables->push_back(imp);
 		updatables->push_back(character);
@@ -87,6 +97,8 @@ namespace Tmpl8
 
 		delete character;
 		delete input;
+
+		delete colliderSystem;
 	}
 	// -----------------------------------------------------------
 	// Main application tick function
@@ -95,8 +107,6 @@ namespace Tmpl8
 	{
 		Game::deltaTime = deltaTime;
 		Game::time += deltaTime;
-
-		controller->ApplyMovement();
 
 		for (int i = 0; i < updatables->size(); i++)
 		{

@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include "game.h"
+#include "ColliderLibrary.h"
 
 void Character::Move(vec2 direction)
 {
@@ -20,6 +21,8 @@ void Character::Move(vec2 direction)
 
 void Character::Update()
 {
+	rect->position = position;
+	rect->size = vec2(sprite->GetWidth(), sprite->GetHeight());
 }
 
 bool Character::GetIsMoving() const
@@ -42,6 +45,16 @@ vec2 Character::GetLastMovingDirection() const
 	return lastMovingDirection;
 }
 
+const Rect& Character::GetRect() const
+{
+	return *rect;
+}
+
+const Collider& Character::GetCollider() const
+{
+	return *collider;
+}
+
 Sprite* Character::GetSprite() const
 {
 	return sprite;
@@ -49,13 +62,17 @@ Sprite* Character::GetSprite() const
 
 void Character::Shoot() {}
 
-Character::Character(char* sheet, int frames, float speed) : position(vec2(100, 100)), isMoving(false), lastMovingDirection(vec2(1, 0)), isFacingRight(true), speed(speed)
+Character::Character(char* sheet, int frames, float speed, vec2 position) : position(position), isMoving(false), lastMovingDirection(vec2(1, 0)), isFacingRight(true), speed(speed)
 {
 	sprite = new Sprite(new Surface(sheet), frames);
+	rect = new Rect(position, vec2(sprite->GetWidth(), sprite->GetHeight()));
+	collider = new Collider(*rect);
 	sprite->SetFrame(0);
 }
 
 Character::~Character()
 {
+	delete collider;
+	delete rect;
 	delete sprite;
 }

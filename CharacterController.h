@@ -1,12 +1,13 @@
 #pragma once
 #include "Character.h"
 #include "IInput.h"
+#include "IUpdatable.h"
 
-class CharacterController
+class CharacterController : public IUpdatable
 {
 public:
 	CharacterController(Character* character, IInput* input);
-	void ApplyMovement();
+	void Update() override;
 
 private:
 	Character* character;

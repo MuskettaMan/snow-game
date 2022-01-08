@@ -225,10 +225,14 @@
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="CharacterController.cpp" />
     <ClCompile Include="CharacterShooter.cpp" />
+    <ClCompile Include="Collider.cpp" />
+    <ClCompile Include="ColliderLibrary.cpp" />
+    <ClCompile Include="ColliderSystem.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="ImpCharacter.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="ProximityFollower.cpp" />
+    <ClCompile Include="Rect.cpp" />
     <ClCompile Include="SantaCharacter.cpp" />
     <ClCompile Include="Snowball.cpp" />
     <ClCompile Include="surface.cpp" />
@@ -240,6 +244,9 @@
     <ClInclude Include="Character.h" />
     <ClInclude Include="CharacterController.h" />
     <ClInclude Include="CharacterShooter.h" />
+    <ClInclude Include="Collider.h" />
+    <ClInclude Include="ColliderLibrary.h" />
+    <ClInclude Include="ColliderSystem.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="IDrawable.h" />
     <ClInclude Include="IInput.h" />
@@ -248,6 +255,7 @@
     <ClInclude Include="IShooter.h" />
     <ClInclude Include="IUpdatable.h" />
     <ClInclude Include="ProximityFollower.h" />
+    <ClInclude Include="Rect.h" />
     <ClInclude Include="SantaCharacter.h" />
     <ClInclude Include="Snowball.h" />
     <ClInclude Include="surface.h" />

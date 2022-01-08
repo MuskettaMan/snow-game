@@ -6,7 +6,7 @@ CharacterController::CharacterController(Character* character, IInput* input) : 
 {
 }
 
-void CharacterController::ApplyMovement()
+void CharacterController::Update()
 {
 	vec2 direction(0, 0);
 	if (input->GetDownKeyPressed())

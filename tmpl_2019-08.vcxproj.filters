@@ -3,15 +3,10 @@
   <ItemGroup>
     <ClCompile Include="game.cpp" />
     <ClCompile Include="surface.cpp">
-      <Filter>template code</Filter>
+      <Filter>Template Framework</Filter>
     </ClCompile>
     <ClCompile Include="template.cpp">
-      <Filter>template code</Filter>
-    </ClCompile>
-    <ClCompile Include="TileMap.cpp" />
-    <ClCompile Include="TileMapData.cpp" />
-    <ClCompile Include="CharacterController.cpp">
-      <Filter>Character</Filter>
+      <Filter>Template Framework</Filter>
     </ClCompile>
     <ClCompile Include="Character.cpp">
       <Filter>Character</Filter>
@@ -22,27 +17,49 @@
     <ClCompile Include="Input.cpp">
       <Filter>Character</Filter>
     </ClCompile>
-    <ClCompile Include="Snowball.cpp" />
     <ClCompile Include="SantaCharacter.cpp">
       <Filter>Character</Filter>
     </ClCompile>
-    <ClCompile Include="ImpCharacter.cpp" />
-    <ClCompile Include="ProximityFollower.cpp" />
+    <ClCompile Include="Collider.cpp">
+      <Filter>Colliders</Filter>
+    </ClCompile>
+    <ClCompile Include="ColliderSystem.cpp">
+      <Filter>Colliders</Filter>
+    </ClCompile>
+    <ClCompile Include="TileMap.cpp">
+      <Filter>Tilemaps</Filter>
+    </ClCompile>
+    <ClCompile Include="TileMapData.cpp">
+      <Filter>Tilemaps</Filter>
+    </ClCompile>
+    <ClCompile Include="ImpCharacter.cpp">
+      <Filter>Character</Filter>
+    </ClCompile>
+    <ClCompile Include="ProximityFollower.cpp">
+      <Filter>Character\Movement</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterController.cpp">
+      <Filter>Character\Movement</Filter>
+    </ClCompile>
+    <ClCompile Include="Snowball.cpp">
+      <Filter>Weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="Rect.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="ColliderLibrary.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h" />
     <ClInclude Include="surface.h">
-      <Filter>template code</Filter>
+      <Filter>Template Framework</Filter>
     </ClInclude>
     <ClInclude Include="template.h">
-      <Filter>template code</Filter>
+      <Filter>Template Framework</Filter>
     </ClInclude>
-    <ClInclude Include="TileMap.h" />
-    <ClInclude Include="TileMapData.h" />
     <ClInclude Include="Character.h">
-      <Filter>Character</Filter>
-    </ClInclude>
-    <ClInclude Include="CharacterController.h">
       <Filter>Character</Filter>
     </ClInclude>
     <ClInclude Include="CharacterShooter.h">
@@ -54,29 +71,78 @@
     <ClInclude Include="Input.h">
       <Filter>Character</Filter>
     </ClInclude>
-    <ClInclude Include="IShooter.h">
-      <Filter>Character</Filter>
-    </ClInclude>
-    <ClInclude Include="Snowball.h" />
     <ClInclude Include="SantaCharacter.h">
       <Filter>Character</Filter>
     </ClInclude>
-    <ClInclude Include="IUpdatable.h" />
-    <ClInclude Include="IDrawable.h" />
-    <ClInclude Include="ImpCharacter.h" />
-    <ClInclude Include="ProximityFollower.h" />
+    <ClInclude Include="Collider.h">
+      <Filter>Colliders</Filter>
+    </ClInclude>
+    <ClInclude Include="ColliderSystem.h">
+      <Filter>Colliders</Filter>
+    </ClInclude>
+    <ClInclude Include="TileMapData.h">
+      <Filter>Tilemaps</Filter>
+    </ClInclude>
+    <ClInclude Include="TileMap.h">
+      <Filter>Tilemaps</Filter>
+    </ClInclude>
+    <ClInclude Include="ImpCharacter.h">
+      <Filter>Character</Filter>
+    </ClInclude>
+    <ClInclude Include="ProximityFollower.h">
+      <Filter>Character\Movement</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterController.h">
+      <Filter>Character\Movement</Filter>
+    </ClInclude>
+    <ClInclude Include="IDrawable.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="IUpdatable.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="IShooter.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Snowball.h">
+      <Filter>Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="Rect.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="ColliderLibrary.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="template code">
-      <UniqueIdentifier>{bf32dd6e-4be7-4889-8ac6-49e7ee163c40}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Character">
       <UniqueIdentifier>{f83c9cc6-31df-48b6-aac9-8aa13adb9410}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Colliders">
+      <UniqueIdentifier>{2ada2320-5c8a-46a4-8008-620e0d36493c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tilemaps">
+      <UniqueIdentifier>{9511b41d-913f-484a-9a36-9ff79e39d329}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Character\Movement">
+      <UniqueIdentifier>{d64da153-e464-4710-a4d4-6d8698f9543c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interfaces">
+      <UniqueIdentifier>{db5553fd-6dca-4aaa-8a32-ecc0ee47b2fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Weapons">
+      <UniqueIdentifier>{b83bf7e4-2bb5-4c15-b864-99c2bb519dd5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Template Framework">
+      <UniqueIdentifier>{bf32dd6e-4be7-4889-8ac6-49e7ee163c40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility">
+      <UniqueIdentifier>{25f2269c-0a84-49f0-bdff-a81eecd1656c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="_readme.txt">
-      <Filter>template code</Filter>
+      <Filter>Template Framework</Filter>
     </Text>
   </ItemGroup>
 </Project>

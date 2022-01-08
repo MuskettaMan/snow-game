@@ -1,7 +1,7 @@
 #include "SantaCharacter.h"
 #include <iostream>
 
-SantaCharacter::SantaCharacter(float speed) : Character("assets/character_sheet.png", 7, speed), movementFrameCounter(0)
+SantaCharacter::SantaCharacter(float speed) : Character("assets/character_sheet.png", 7, speed, vec2(100, 100)), movementFrameCounter(0)
 {
 	shooter = new CharacterShooter;
 }
@@ -18,6 +18,7 @@ void SantaCharacter::Shoot()
 
 void SantaCharacter::Update()
 {
+	Character::Update();
 	shooter->Update();
 }
 
