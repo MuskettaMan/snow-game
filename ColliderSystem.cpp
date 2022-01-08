@@ -32,10 +32,11 @@ void ColliderSystem::Update()
 				continue;
 
 			bool overlap = ColliderLibrary::RectRect(colliders[i]->GetRect(), colliders[j]->GetRect());
-			if(overlap)
-				std::cout << i << ", " << j << "\n";
-			//__raise colliders[i].Collides(colliders[j]);
-			//__raise colliders[j].Collides(colliders[i]);
+			if (overlap)
+			{
+				colliders[i]->Collides(*colliders[j]);
+				colliders[j]->Collides(*colliders[i]);
+			}
 		}
 	}
 }

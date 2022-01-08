@@ -113,6 +113,12 @@
     <ClInclude Include="ColliderLibrary.h">
       <Filter>Utility</Filter>
     </ClInclude>
+    <ClInclude Include="CollisionType.h">
+      <Filter>Colliders</Filter>
+    </ClInclude>
+    <ClInclude Include="ICollisionNotification.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Character">

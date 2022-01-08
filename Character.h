@@ -1,4 +1,6 @@
 #pragma once
+#include <stdio.h>
+
 #include "CharacterShooter.h"
 #include "surface.h"
 #include "template.h"
@@ -6,10 +8,12 @@
 #include "IUpdatable.h"
 #include "Rect.h"
 #include "Collider.h"
+#include "ICollisionNotification.h"
 
 using namespace Tmpl8;
 
-class Character : public IDrawable, public IUpdatable
+[event_receiver(native)]
+class Character : public IDrawable, public IUpdatable, public ICollisionNotification
 {
 public:
 	Character(char* sheet, int frames, float speed, vec2 position = vec2(400, 250));
@@ -24,6 +28,7 @@ public:
 	vec2 GetLastMovingDirection() const;
 	const Rect& GetRect() const;
 	const Collider& GetCollider() const;
+	virtual void OnCollision(CollisionType collisionType) override;
 protected:
 	Sprite* GetSprite() const;
 private:

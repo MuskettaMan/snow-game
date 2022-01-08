@@ -15,6 +15,6 @@ public:
 	void Update() override;
 
 private:
-	std::vector<const Collider const*> colliders;
+	std::vector<const Collider*> colliders;
 };
 

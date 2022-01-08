@@ -247,7 +247,9 @@
     <ClInclude Include="Collider.h" />
     <ClInclude Include="ColliderLibrary.h" />
     <ClInclude Include="ColliderSystem.h" />
+    <ClInclude Include="CollisionType.h" />
     <ClInclude Include="game.h" />
+    <ClInclude Include="ICollisionNotification.h" />
     <ClInclude Include="IDrawable.h" />
     <ClInclude Include="IInput.h" />
     <ClInclude Include="ImpCharacter.h" />
