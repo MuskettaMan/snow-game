@@ -20,6 +20,8 @@ namespace Tmpl8
 	Surface* ground_sheet;
 	TileMapData* tileMapData;
 	TileMap* tileMap;
+
+	CharacterShooter* shooter;
 	SantaCharacter* character;
 	CharacterController* controller;
 	Input* input;
@@ -58,13 +60,15 @@ namespace Tmpl8
 
 		input = new Input();
 
-		character = new SantaCharacter(0.2f);
+		colliderSystem = new ColliderSystem();
+
+		shooter = new CharacterShooter(*colliderSystem);
+		character = new SantaCharacter(0.2f, *shooter);
 		controller = new CharacterController(character, input);
 
 		imp = new ImpCharacter(0.09f);
 		proximityFollower = new ProximityFollower(imp, character, 250);
 
-		colliderSystem = new ColliderSystem();
 		colliderSystem->Register(character->GetCollider());
 		colliderSystem->Register(imp->GetCollider());
 
@@ -88,17 +92,23 @@ namespace Tmpl8
 	// -----------------------------------------------------------
 	void Game::Shutdown()
 	{
-		delete drawables;
 		delete updatables;
-
-		delete ground_sheet;
-		delete tileMapData;
-		delete tileMap;
-
-		delete character;
-		delete input;
+		delete drawables;
 
 		delete colliderSystem;
+
+		delete imp;
+		delete proximityFollower;
+
+		delete controller;
+		delete character;
+		delete shooter;
+
+		delete input;
+
+		delete tileMap;
+		delete tileMapData;
+		delete ground_sheet;
 	}
 	// -----------------------------------------------------------
 	// Main application tick function

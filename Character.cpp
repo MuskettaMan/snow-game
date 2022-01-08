@@ -57,7 +57,6 @@ const Collider& Character::GetCollider() const
 
 void Character::OnCollision(CollisionType collisionType)
 {
-	std::cout << "Collision\n";
 }
 
 Sprite* Character::GetSprite() const
@@ -67,11 +66,11 @@ Sprite* Character::GetSprite() const
 
 void Character::Shoot() {}
 
-Character::Character(char* sheet, int frames, float speed, vec2 position) : position(position), isMoving(false), lastMovingDirection(vec2(1, 0)), isFacingRight(true), speed(speed)
+Character::Character(char* sheet, int frames, float speed, CollisionType collisionType, vec2 position) : position(position), isMoving(false), lastMovingDirection(vec2(1, 0)), isFacingRight(true), speed(speed), collisionType(collisionType)
 {
 	sprite = new Sprite(new Surface(sheet), frames);
 	rect = new Rect(position, vec2(sprite->GetWidth(), sprite->GetHeight()));
-	collider = new Collider(*rect, CollisionType::Ally);
+	collider = new Collider(*rect, collisionType);
 	collider->Register(*this);
 	sprite->SetFrame(0);
 }

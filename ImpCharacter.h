@@ -6,6 +6,7 @@ public:
 	ImpCharacter(float speed);
 	~ImpCharacter();
 	void Draw(Surface* screen) override;
+	void OnCollision(CollisionType collisionType) override;
 private:
 	int frameCounter;
 };

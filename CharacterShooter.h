@@ -4,16 +4,21 @@
 #include "IShooter.h"
 #include "Snowball.h"
 #include "IUpdatable.h"
+#include "ColliderSystem.h"
+
+using namespace Tmpl8;
 
 class CharacterShooter : IShooter, public IUpdatable
 {
 public:
-	CharacterShooter();
-	void Shoot(Tmpl8::vec2 origin, Tmpl8::vec2 direction) override;
+	CharacterShooter(ColliderSystem& colliderSystem);
+	~CharacterShooter();
+	void Shoot(vec2 origin, vec2 direction) override;
 	void Update();
-	void Draw(Tmpl8::Surface* screen);
+	void Draw(Surface* screen);
 
 private:
+	ColliderSystem& colliderSystem;
 	std::vector<Snowball*> snowballs;
 	float fireRate;
 	float lastFireTime;

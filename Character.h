@@ -16,7 +16,7 @@ using namespace Tmpl8;
 class Character : public IDrawable, public IUpdatable, public ICollisionNotification
 {
 public:
-	Character(char* sheet, int frames, float speed, vec2 position = vec2(400, 250));
+	Character(char* sheet, int frames, float speed, CollisionType collisionType, vec2 position = vec2(400, 250));
 	~Character();
 	virtual void Move(vec2 direction);
 	virtual void Shoot();
@@ -41,5 +41,6 @@ private:
 	vec2 lastMovingDirection;
 	bool isFacingRight;
 	float speed;
+	CollisionType collisionType;
 };
 

@@ -1,12 +1,19 @@
 #include "ImpCharacter.h"
+#include <iostream>
 
-ImpCharacter::ImpCharacter(float speed) : Character("assets/enemy_sheet.png", 16, speed), frameCounter(0)
+ImpCharacter::ImpCharacter(float speed) : Character("assets/enemy_sheet.png", 16, speed, CollisionType::Enemy), frameCounter(0)
 {
 
 }
 ImpCharacter::~ImpCharacter()
 {
 
+}
+
+void ImpCharacter::OnCollision(CollisionType collisionType)
+{
+	if(collisionType == CollisionType::Projectile)
+		std::cout << "Collision\n";
 }
 
 void ImpCharacter::Draw(Surface* screen)

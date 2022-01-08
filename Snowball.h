@@ -1,20 +1,28 @@
 #pragma once
 #include "surface.h"
 #include "template.h"
+#include "IUpdatable.h"
+#include "Collider.h"
+#include "Rect.h"
 
-class Snowball
+using namespace Tmpl8;
+
+class Snowball : public IUpdatable
 {
 public:
-	Snowball(Tmpl8::vec2 origin, Tmpl8::vec2 direction);
+	Snowball(vec2 origin, vec2 direction);
 	~Snowball();
-	void Update();
-	void Draw(Tmpl8::Surface* screen) const;
+	void Update() override;
+	void Draw(Surface* screen) const;
 	float GetStartTime();
+	const Collider& GetCollider() const;
 
 private:
-	Tmpl8::vec2 position;
-	Tmpl8::vec2 velocity;
-	Tmpl8::Sprite* sprite;
+	Collider* collider;
+	Rect* rect;
+	vec2 position;
+	vec2 velocity;
+	Sprite* sprite;
 	float startTime;
 };
 

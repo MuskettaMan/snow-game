@@ -2,28 +2,36 @@
 
 #include "game.h"
 
-CharacterShooter::CharacterShooter() : fireRate(500), lastFireTime(0)
+using namespace Tmpl8;
+
+CharacterShooter::CharacterShooter(ColliderSystem& colliderSystem) : fireRate(500), lastFireTime(0), colliderSystem(colliderSystem)
 {
 }
 
-void CharacterShooter::Shoot(Tmpl8::vec2 origin, Tmpl8::vec2 direction)
+CharacterShooter::~CharacterShooter()
 {
-	if(lastFireTime + fireRate > Tmpl8::Game::GetTime())
+}
+
+void CharacterShooter::Shoot(vec2 origin, vec2 direction)
+{
+	if(lastFireTime + fireRate > Game::GetTime())
 	{
 		return;
 	}
 
 	Snowball* snowball = new Snowball(origin, direction);
 	snowballs.push_back(snowball);
-	lastFireTime = Tmpl8::Game::GetTime();
+	colliderSystem.Register(snowball->GetCollider());
+	lastFireTime = Game::GetTime();
 }
 
 void CharacterShooter::Update()
 {
 	for (int i = 0; i < snowballs.size(); i++)
 	{
-		if(snowballs[i]->GetStartTime() + 1000 < Tmpl8::Game::GetTime())
+		if(snowballs[i]->GetStartTime() + 1000 < Game::GetTime())
 		{
+			colliderSystem.Unregister(snowballs[i]->GetCollider());
 			delete snowballs[i];
 			snowballs.erase(snowballs.begin() + i);
 			continue;
@@ -32,7 +40,7 @@ void CharacterShooter::Update()
 	}
 }
 
-void CharacterShooter::Draw(Tmpl8::Surface* screen)
+void CharacterShooter::Draw(Surface* screen)
 {
 	for (int i = 0; i < snowballs.size(); i++)
 	{
