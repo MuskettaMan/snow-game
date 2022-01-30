@@ -230,7 +230,10 @@
     <ClCompile Include="game.cpp" />
     <ClCompile Include="ImpCharacter.cpp" />
     <ClCompile Include="Input.cpp" />
+    <ClCompile Include="Present.cpp" />
+    <ClCompile Include="PresentFactory.cpp" />
     <ClCompile Include="ProximityFollower.cpp" />
+    <ClCompile Include="RandomPlacementGenerator.cpp" />
     <ClCompile Include="Rect.cpp" />
     <ClCompile Include="SantaCharacter.cpp" />
     <ClCompile Include="Snowball.cpp" />
@@ -252,10 +255,14 @@
     <ClInclude Include="IInput.h" />
     <ClInclude Include="ImpCharacter.h" />
     <ClInclude Include="Input.h" />
+    <ClInclude Include="IPlacementGenerator.h" />
     <ClInclude Include="IShooter.h" />
     <ClInclude Include="ISnowballCollisionNotifier.h" />
     <ClInclude Include="IUpdatable.h" />
+    <ClInclude Include="Present.h" />
+    <ClInclude Include="PresentFactory.h" />
     <ClInclude Include="ProximityFollower.h" />
+    <ClInclude Include="RandomPlacementGenerator.h" />
     <ClInclude Include="Rect.h" />
     <ClInclude Include="SantaCharacter.h" />
     <ClInclude Include="Snowball.h" />

@@ -12,11 +12,13 @@
 #include "SantaCharacter.h"
 #include "ImpCharacter.h"
 #include "IUpdatable.h"
+#include "PresentFactory.h"
 #include "ProximityFollower.h"
+#include "RandomPlacementGenerator.h"
 
 namespace Tmpl8
 {
-	Surface* ground_sheet;
+	Surface* groundSheet;
 	TileMapData* tileMapData;
 	TileMap* tileMap;
 	SantaCharacter* character;
@@ -27,6 +29,9 @@ namespace Tmpl8
 	ProximityFollower* proximityFollower;
 
 	CollisionHandler* collisionHandler;
+
+	RandomPlacementGenerator* randomPlacementGenerator;
+	PresentFactory* presentFactory;
 
 	std::vector<IDrawable*>* drawables;
 	std::vector<IUpdatable*>* updatables;
@@ -45,17 +50,14 @@ namespace Tmpl8
 		"eb ec eb ec eb eb eb fe eb eb ec eb fe"
 	};
 
-
-	// -----------------------------------------------------------
-	// Initialize the application
-	// -----------------------------------------------------------
 	void Game::Init()
 	{
-		ground_sheet = new Surface("assets/ground_sheet.png");
-		tileMapData =  new TileMapData(424, 64, 8, ground_sheet);
+		groundSheet = new Surface("assets/ground_sheet.png");
+		tileMapData =  new TileMapData(424, 64, 8, groundSheet);
 		tileMap = new TileMap(map, *tileMapData);
 
 		input = new Input();
+
 		collisionHandler = new CollisionHandler();
 
 		character = new SantaCharacter(vec2(100, 100), 0.2f, collisionHandler);
@@ -64,6 +66,14 @@ namespace Tmpl8
 		imp = new ImpCharacter(vec2(500, 500), 0.09f);
 		proximityFollower = new ProximityFollower(imp, character, 250);
 
+		randomPlacementGenerator = new RandomPlacementGenerator();
+		presentFactory = new PresentFactory(*randomPlacementGenerator, collisionHandler);
+
+		presentFactory->GeneratePresent();
+		presentFactory->GeneratePresent();
+		presentFactory->GeneratePresent();
+		presentFactory->GeneratePresent();
+
 		drawables = new std::vector<IDrawable*>();
 		updatables = new std::vector<IUpdatable*>();
 
@@ -71,6 +81,7 @@ namespace Tmpl8
 		collisionHandler->Register(&character->GetCollider());
 
 		drawables->push_back(tileMap);
+		drawables->push_back(presentFactory);
 		drawables->push_back(imp);
 		drawables->push_back(character);
 
@@ -80,27 +91,30 @@ namespace Tmpl8
 		updatables->push_back(input);
 		updatables->push_back(collisionHandler);
 	}
-
-	// -----------------------------------------------------------
-	// Close down application
-	// -----------------------------------------------------------
+	
 	void Game::Shutdown()
 	{
-		delete drawables;
 		delete updatables;
+		delete drawables;
 
-		delete ground_sheet;
-		delete tileMapData;
-		delete tileMap;
+		delete presentFactory;
+		delete randomPlacementGenerator;
 
+		delete proximityFollower;
+		delete imp;
+
+		delete controller;
 		delete character;
-		delete input;
 
 		delete collisionHandler;
+
+		delete input;
+
+		delete tileMap;
+		delete tileMapData;
+		delete groundSheet;
 	}
-	// -----------------------------------------------------------
-	// Main application tick function
-	// -----------------------------------------------------------
+
 	void Game::Tick(float deltaTime)
 	{
 		Game::deltaTime = deltaTime;

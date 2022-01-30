@@ -1,5 +1,13 @@
 #include "Rect.h"
 
+Rect::Rect() : position({0, 0}), size({0, 0})
+{
+}
+
+Rect::Rect(vec2 position, vec2 size) : position(position), size(size)
+{
+}
+
 vec2 Rect::GetTopLeft() const
 {
 	return position;
