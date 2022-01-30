@@ -9,6 +9,10 @@ ImpCharacter::~ImpCharacter()
 
 }
 
+void ImpCharacter::NotifyCollision(ColliderType colliderType)
+{
+}
+
 void ImpCharacter::Draw(Surface* screen)
 {
 	++frameCounter;

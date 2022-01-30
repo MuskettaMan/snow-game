@@ -9,7 +9,7 @@
 
 using namespace Tmpl8;
 
-class Character : public IDrawable, public IUpdatable
+class Character : public IDrawable, public IUpdatable, public ICollisionNotifier
 {
 public:
 	Character(vec2 position, char* sheet, int frames, float speed);
@@ -18,12 +18,13 @@ public:
 	virtual void Shoot();
 	virtual void Draw(Surface* screen) = 0;
 	virtual void Update();
+	virtual void NotifyCollision(ColliderType colliderType) override = 0;
 	bool GetIsMoving() const;
 	bool GetIsFacingRight() const;
 	vec2 GetPosition() const;
 	vec2 GetLastMovingDirection() const;
 	Rect* GetRect() const;
-	const Collider& GetCollider() const;
+	Collider& GetCollider() const;
 protected:
 	Sprite* GetSprite() const;
 private:

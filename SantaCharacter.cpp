@@ -11,6 +11,11 @@ SantaCharacter::~SantaCharacter()
 	delete shooter;
 }
 
+void SantaCharacter::NotifyCollision(ColliderType colliderType)
+{
+	std::cout << "Collision on santa\n";
+}
+
 void SantaCharacter::Shoot()
 {
 	shooter->Shoot(GetPosition() + vec2(GetSprite()->GetWidth() / 2, GetSprite()->GetHeight() / 2), GetLastMovingDirection());

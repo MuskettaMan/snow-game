@@ -30,6 +30,7 @@
     <ClCompile Include="ProximityFollower.cpp" />
     <ClCompile Include="Rect.cpp" />
     <ClCompile Include="Collider.cpp" />
+    <ClCompile Include="CollisionHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h" />
@@ -69,6 +70,9 @@
     <ClInclude Include="ProximityFollower.h" />
     <ClInclude Include="Rect.h" />
     <ClInclude Include="Collider.h" />
+    <ClInclude Include="ColliderType.h" />
+    <ClInclude Include="CollisionNotifier.h" />
+    <ClInclude Include="CollisionHandler.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="template code">

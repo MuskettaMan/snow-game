@@ -6,6 +6,7 @@
 
 #include "Character.h"
 #include "CharacterController.h"
+#include "CollisionHandler.h"
 #include "Input.h"
 #include "TileMap.h"
 #include "SantaCharacter.h"
@@ -24,6 +25,8 @@ namespace Tmpl8
 
 	ImpCharacter* imp;
 	ProximityFollower* proximityFollower;
+
+	CollisionHandler* collisionHandler;
 
 	std::vector<IDrawable*>* drawables;
 	std::vector<IUpdatable*>* updatables;
@@ -63,6 +66,10 @@ namespace Tmpl8
 		drawables = new std::vector<IDrawable*>();
 		updatables = new std::vector<IUpdatable*>();
 
+		collisionHandler = new CollisionHandler();
+		collisionHandler->Register(&imp->GetCollider());
+		collisionHandler->Register(&character->GetCollider());
+
 		drawables->push_back(tileMap);
 		drawables->push_back(imp);
 		drawables->push_back(character);
@@ -71,6 +78,7 @@ namespace Tmpl8
 		updatables->push_back(imp);
 		updatables->push_back(character);
 		updatables->push_back(input);
+		updatables->push_back(collisionHandler);
 	}
 
 	// -----------------------------------------------------------
@@ -87,6 +95,8 @@ namespace Tmpl8
 
 		delete character;
 		delete input;
+
+		delete collisionHandler;
 	}
 	// -----------------------------------------------------------
 	// Main application tick function
@@ -97,9 +107,6 @@ namespace Tmpl8
 		Game::time += deltaTime;
 
 		controller->ApplyMovement();
-
-		if (character->GetCollider().Collides(imp->GetCollider()))
-			std::cout << "Collision\n";
 
 		for (int i = 0; i < updatables->size(); i++)
 		{
