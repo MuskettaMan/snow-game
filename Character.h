@@ -27,8 +27,8 @@ public:
 	Collider& GetCollider() const;
 protected:
 	Sprite* GetSprite() const;
-private:
 	Collider* collider;
+private:
 	Rect* rect;
 	vec2 position;
 	Sprite* sprite;

@@ -1,20 +1,29 @@
 #pragma once
+#include "Collider.h"
+#include "ISnowballCollisionNotifier.h"
 #include "surface.h"
 #include "template.h"
 
-class Snowball
+using namespace Tmpl8;
+
+class Snowball : public ICollisionNotifier
 {
 public:
-	Snowball(Tmpl8::vec2 origin, Tmpl8::vec2 direction);
+	Snowball(vec2 origin, vec2 direction, ISnowballCollisionNotifier& snowballCollisionNotifier);
 	~Snowball();
 	void Update();
-	void Draw(Tmpl8::Surface* screen) const;
+	void Draw(Surface* screen) const;
 	float GetStartTime();
+	Collider& GetCollider() const;
+	void NotifyCollision(ColliderType colliderType) override;
 
 private:
-	Tmpl8::vec2 position;
-	Tmpl8::vec2 velocity;
-	Tmpl8::Sprite* sprite;
+	vec2 position;
+	vec2 velocity;
+	Sprite* sprite;
+	Rect* rect;
+	Collider* collider;
 	float startTime;
+	ISnowballCollisionNotifier& snowballCollisionNotifier;
 };
 

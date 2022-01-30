@@ -2,22 +2,26 @@
 
 #include "game.h"
 
-Snowball::Snowball(Tmpl8::vec2 origin, Tmpl8::vec2 direction) : position(origin), velocity(direction.normalized() * Tmpl8::Game::GetDeltaTime() * 0.4f), startTime(Tmpl8::Game::GetTime())
+Snowball::Snowball(vec2 origin, vec2 direction, ISnowballCollisionNotifier& snowballCollisionNotifier) : position(origin), velocity(direction.normalized() * Game::GetDeltaTime() * 0.4f), startTime(Game::GetTime()), rect(new Rect()), collider(new Collider(*rect, ColliderType::PROJECTILE, *this)), snowballCollisionNotifier(snowballCollisionNotifier)
 {
-	sprite = new Tmpl8::Sprite(new Tmpl8::Surface("assets/snowball.png"), 1);
+	sprite = new Sprite(new Surface("assets/snowball.png"), 1);
+	rect->size = vec2(sprite->GetWidth(), sprite->GetHeight());
 }
 
 Snowball::~Snowball()
 {
 	delete sprite;
+	delete collider;
+	delete rect;
 }
 
 void Snowball::Update()
 {
 	position += velocity;
+	rect->position = position;
 }
 
-void Snowball::Draw(Tmpl8::Surface* screen) const
+void Snowball::Draw(Surface* screen) const
 {
 	sprite->Draw(screen, position.x, position.y);
 }
@@ -25,4 +29,14 @@ void Snowball::Draw(Tmpl8::Surface* screen) const
 float Snowball::GetStartTime()
 {
 	return startTime;
+}
+
+Collider& Snowball::GetCollider() const
+{
+	return *collider;
+}
+
+void Snowball::NotifyCollision(ColliderType colliderType)
+{
+	snowballCollisionNotifier.NotifySnowballCollision(*this, colliderType);
 }

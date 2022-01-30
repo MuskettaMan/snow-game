@@ -56,8 +56,9 @@ namespace Tmpl8
 		tileMap = new TileMap(map, *tileMapData);
 
 		input = new Input();
+		collisionHandler = new CollisionHandler();
 
-		character = new SantaCharacter(vec2(100, 100), 0.2f);
+		character = new SantaCharacter(vec2(100, 100), 0.2f, collisionHandler);
 		controller = new CharacterController(character, input);
 
 		imp = new ImpCharacter(vec2(500, 500), 0.09f);
@@ -66,7 +67,6 @@ namespace Tmpl8
 		drawables = new std::vector<IDrawable*>();
 		updatables = new std::vector<IUpdatable*>();
 
-		collisionHandler = new CollisionHandler();
 		collisionHandler->Register(&imp->GetCollider());
 		collisionHandler->Register(&character->GetCollider());
 

@@ -63,7 +63,6 @@ void Character::Shoot() {}
 
 Character::Character(vec2 position, char* sheet, int frames, float speed) : position(position), isMoving(false), lastMovingDirection(vec2(1, 0)), isFacingRight(true), speed(speed), rect(new Rect())
 {
-	collider = new Collider(*rect, ColliderType::ALLY, *this);
 	sprite = new Sprite(new Surface(sheet), frames);
 	sprite->SetFrame(0);
 }

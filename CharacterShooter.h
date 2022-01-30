@@ -1,21 +1,26 @@
 #pragma once
 #include <vector>
 
+#include "CollisionHandler.h"
 #include "IShooter.h"
 #include "Snowball.h"
 #include "IUpdatable.h"
 
-class CharacterShooter : IShooter, public IUpdatable
+class CharacterShooter : public IShooter, public IUpdatable, public ISnowballCollisionNotifier
 {
 public:
-	CharacterShooter();
-	void Shoot(Tmpl8::vec2 origin, Tmpl8::vec2 direction) override;
-	void Update();
-	void Draw(Tmpl8::Surface* screen);
+	CharacterShooter(CollisionHandler* collisionHandler);
+	void Shoot(vec2 origin, vec2 direction) override;
+	void Update() override;
+	void Draw(Surface* screen);
+	void NotifySnowballCollision(Snowball& snowball, ColliderType colliderType) override;
 
 private:
+	void RemoveSnowball(const Snowball& snowball);
+
 	std::vector<Snowball*> snowballs;
 	float fireRate;
 	float lastFireTime;
+	CollisionHandler* collisionHandler;
 };
 

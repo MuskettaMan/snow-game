@@ -1,9 +1,9 @@
 #include "SantaCharacter.h"
 #include <iostream>
 
-SantaCharacter::SantaCharacter(vec2 position, float speed) : Character(position, "assets/character_sheet.png", 7, speed), movementFrameCounter(0)
+SantaCharacter::SantaCharacter(vec2 position, float speed, CollisionHandler* collisionHandler) : Character(position, "assets/character_sheet.png", 7, speed), shooter(new CharacterShooter(collisionHandler)), movementFrameCounter(0)
 {
-	shooter = new CharacterShooter;
+	collider = new Collider(*GetRect(), ColliderType::ALLY, *this);
 }
 
 SantaCharacter::~SantaCharacter()

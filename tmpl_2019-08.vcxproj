@@ -253,6 +253,7 @@
     <ClInclude Include="ImpCharacter.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="IShooter.h" />
+    <ClInclude Include="ISnowballCollisionNotifier.h" />
     <ClInclude Include="IUpdatable.h" />
     <ClInclude Include="ProximityFollower.h" />
     <ClInclude Include="Rect.h" />

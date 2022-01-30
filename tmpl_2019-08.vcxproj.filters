@@ -73,6 +73,7 @@
     <ClInclude Include="ColliderType.h" />
     <ClInclude Include="CollisionNotifier.h" />
     <ClInclude Include="CollisionHandler.h" />
+    <ClInclude Include="ISnowballCollisionNotifier.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="template code">

@@ -4,7 +4,7 @@
 class SantaCharacter : public Character
 {
 public: 
-	SantaCharacter(vec2 position, float speed);
+	SantaCharacter(vec2 position, float speed, CollisionHandler* collisionHandler);
 	~SantaCharacter();
 	void NotifyCollision(ColliderType colliderType) override;
 	void Draw(Surface* screen) override;

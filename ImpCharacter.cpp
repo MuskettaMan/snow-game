@@ -1,8 +1,10 @@
 #include "ImpCharacter.h"
 
+#include <iostream>
+
 ImpCharacter::ImpCharacter(vec2 position, float speed) : Character(position, "assets/enemy_sheet.png", 16, speed), frameCounter(0)
 {
-
+	collider = new Collider(*GetRect(), ColliderType::ENEMY, *this);
 }
 ImpCharacter::~ImpCharacter()
 {
@@ -11,6 +13,10 @@ ImpCharacter::~ImpCharacter()
 
 void ImpCharacter::NotifyCollision(ColliderType colliderType)
 {
+	if (colliderType != ColliderType::PROJECTILE)
+		return;
+
+	std::cout << "Enemy hit by projectile.\n";
 }
 
 void ImpCharacter::Draw(Surface* screen)
