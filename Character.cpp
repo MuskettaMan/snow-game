@@ -49,6 +49,11 @@ Rect* Character::GetRect() const
 	return rect;
 }
 
+const Collider& Character::GetCollider() const
+{
+	return *collider;
+}
+
 Sprite* Character::GetSprite() const
 {
 	return sprite;
@@ -56,8 +61,9 @@ Sprite* Character::GetSprite() const
 
 void Character::Shoot() {}
 
-Character::Character(char* sheet, int frames, float speed) : position(vec2(100, 100)), isMoving(false), lastMovingDirection(vec2(1, 0)), isFacingRight(true), speed(speed), rect(new Rect())
+Character::Character(vec2 position, char* sheet, int frames, float speed) : position(position), isMoving(false), lastMovingDirection(vec2(1, 0)), isFacingRight(true), speed(speed), rect(new Rect())
 {
+	collider = new Collider(*rect);
 	sprite = new Sprite(new Surface(sheet), frames);
 	sprite->SetFrame(0);
 }

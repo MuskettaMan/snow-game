@@ -1,6 +1,6 @@
 #include "ImpCharacter.h"
 
-ImpCharacter::ImpCharacter(float speed) : Character("assets/enemy_sheet.png", 16, speed), frameCounter(0)
+ImpCharacter::ImpCharacter(vec2 position, float speed) : Character(position, "assets/enemy_sheet.png", 16, speed), frameCounter(0)
 {
 
 }

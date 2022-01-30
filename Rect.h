@@ -14,7 +14,5 @@ public:
 	vec2 GetBottomRight() const;
 	vec2 GetBottomLeft() const;
 
-private:
-
 };
 

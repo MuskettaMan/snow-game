@@ -4,7 +4,7 @@
 class SantaCharacter : public Character
 {
 public: 
-	SantaCharacter(float speed);
+	SantaCharacter(vec2 position, float speed);
 	~SantaCharacter();
 	void Draw(Surface* screen) override;
 	void Update() override;

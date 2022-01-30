@@ -54,10 +54,10 @@ namespace Tmpl8
 
 		input = new Input();
 
-		character = new SantaCharacter(0.2f);
+		character = new SantaCharacter(vec2(100, 100), 0.2f);
 		controller = new CharacterController(character, input);
 
-		imp = new ImpCharacter(0.09f);
+		imp = new ImpCharacter(vec2(500, 500), 0.09f);
 		proximityFollower = new ProximityFollower(imp, character, 250);
 
 		drawables = new std::vector<IDrawable*>();
@@ -97,6 +97,9 @@ namespace Tmpl8
 		Game::time += deltaTime;
 
 		controller->ApplyMovement();
+
+		if (character->GetCollider().Collides(imp->GetCollider()))
+			std::cout << "Collision\n";
 
 		for (int i = 0; i < updatables->size(); i++)
 		{
