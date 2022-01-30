@@ -18,6 +18,7 @@ void SantaCharacter::Shoot()
 
 void SantaCharacter::Update()
 {
+	Character::Update();
 	shooter->Update();
 }
 
@@ -40,4 +41,9 @@ void SantaCharacter::Draw(Surface* screen)
 	shooter->Draw(screen);
 
 	GetSprite()->Draw(screen, GetPosition().x, GetPosition().y);
+
+	screen->Line(GetRect()->GetTopLeft().x, GetRect()->GetTopLeft().y, GetRect()->GetTopRight().x, GetRect()->GetTopRight().y, 0xff0000);
+	screen->Line(GetRect()->GetTopRight().x, GetRect()->GetTopRight().y, GetRect()->GetBottomRight().x, GetRect()->GetBottomRight().y, 0xff0000);
+	screen->Line(GetRect()->GetBottomRight().x, GetRect()->GetBottomRight().y, GetRect()->GetBottomLeft().x, GetRect()->GetBottomLeft().y, 0xff0000);
+	screen->Line(GetRect()->GetBottomLeft().x, GetRect()->GetBottomLeft().y, GetRect()->GetTopLeft().x, GetRect()->GetTopLeft().y, 0xff0000);
 }

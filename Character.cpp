@@ -20,6 +20,8 @@ void Character::Move(vec2 direction)
 
 void Character::Update()
 {
+	rect->position = position;
+	rect->size = vec2(sprite->GetWidth(), sprite->GetHeight());
 }
 
 bool Character::GetIsMoving() const
@@ -42,6 +44,11 @@ vec2 Character::GetLastMovingDirection() const
 	return lastMovingDirection;
 }
 
+Rect* Character::GetRect() const
+{
+	return rect;
+}
+
 Sprite* Character::GetSprite() const
 {
 	return sprite;
@@ -49,7 +56,7 @@ Sprite* Character::GetSprite() const
 
 void Character::Shoot() {}
 
-Character::Character(char* sheet, int frames, float speed) : position(vec2(100, 100)), isMoving(false), lastMovingDirection(vec2(1, 0)), isFacingRight(true), speed(speed)
+Character::Character(char* sheet, int frames, float speed) : position(vec2(100, 100)), isMoving(false), lastMovingDirection(vec2(1, 0)), isFacingRight(true), speed(speed), rect(new Rect())
 {
 	sprite = new Sprite(new Surface(sheet), frames);
 	sprite->SetFrame(0);
@@ -58,4 +65,5 @@ Character::Character(char* sheet, int frames, float speed) : position(vec2(100, 
 Character::~Character()
 {
 	delete sprite;
+	delete rect;
 }

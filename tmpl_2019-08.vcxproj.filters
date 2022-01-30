@@ -28,6 +28,7 @@
     </ClCompile>
     <ClCompile Include="ImpCharacter.cpp" />
     <ClCompile Include="ProximityFollower.cpp" />
+    <ClCompile Include="Rect.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h" />
@@ -65,6 +66,7 @@
     <ClInclude Include="IDrawable.h" />
     <ClInclude Include="ImpCharacter.h" />
     <ClInclude Include="ProximityFollower.h" />
+    <ClInclude Include="Rect.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="template code">

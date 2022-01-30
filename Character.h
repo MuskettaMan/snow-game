@@ -4,6 +4,7 @@
 #include "template.h"
 #include "IDrawable.h"
 #include "IUpdatable.h"
+#include "Rect.h"
 
 using namespace Tmpl8;
 
@@ -20,9 +21,11 @@ public:
 	bool GetIsFacingRight() const;
 	vec2 GetPosition() const;
 	vec2 GetLastMovingDirection() const;
+	Rect* GetRect() const;
 protected:
 	Sprite* GetSprite() const;
 private:
+	Rect* rect;
 	vec2 position;
 	Sprite* sprite;
 	bool isMoving;
