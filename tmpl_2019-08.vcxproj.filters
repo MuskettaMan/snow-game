@@ -8,29 +8,45 @@
     <ClCompile Include="template.cpp">
       <Filter>template code</Filter>
     </ClCompile>
-    <ClCompile Include="TileMap.cpp" />
-    <ClCompile Include="TileMapData.cpp" />
     <ClCompile Include="CharacterController.cpp">
       <Filter>Character</Filter>
     </ClCompile>
     <ClCompile Include="Character.cpp">
       <Filter>Character</Filter>
     </ClCompile>
-    <ClCompile Include="CharacterShooter.cpp">
-      <Filter>Character</Filter>
-    </ClCompile>
-    <ClCompile Include="Input.cpp">
-      <Filter>Character</Filter>
-    </ClCompile>
-    <ClCompile Include="Snowball.cpp" />
     <ClCompile Include="SantaCharacter.cpp">
       <Filter>Character</Filter>
     </ClCompile>
-    <ClCompile Include="ImpCharacter.cpp" />
-    <ClCompile Include="ProximityFollower.cpp" />
-    <ClCompile Include="Rect.cpp" />
-    <ClCompile Include="Collider.cpp" />
-    <ClCompile Include="CollisionHandler.cpp" />
+    <ClCompile Include="ImpCharacter.cpp">
+      <Filter>Character</Filter>
+    </ClCompile>
+    <ClCompile Include="ProximityFollower.cpp">
+      <Filter>Character</Filter>
+    </ClCompile>
+    <ClCompile Include="TileMap.cpp">
+      <Filter>Tilemap</Filter>
+    </ClCompile>
+    <ClCompile Include="TileMapData.cpp">
+      <Filter>Tilemap</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionHandler.cpp">
+      <Filter>Collisions</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider.cpp">
+      <Filter>Collisions</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterShooter.cpp">
+      <Filter>Projectiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Snowball.cpp">
+      <Filter>Projectiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Rect.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h" />
@@ -40,40 +56,66 @@
     <ClInclude Include="template.h">
       <Filter>template code</Filter>
     </ClInclude>
-    <ClInclude Include="TileMap.h" />
-    <ClInclude Include="TileMapData.h" />
     <ClInclude Include="Character.h">
       <Filter>Character</Filter>
     </ClInclude>
     <ClInclude Include="CharacterController.h">
       <Filter>Character</Filter>
     </ClInclude>
-    <ClInclude Include="CharacterShooter.h">
-      <Filter>Character</Filter>
-    </ClInclude>
-    <ClInclude Include="IInput.h">
-      <Filter>Character</Filter>
-    </ClInclude>
-    <ClInclude Include="Input.h">
-      <Filter>Character</Filter>
-    </ClInclude>
-    <ClInclude Include="IShooter.h">
-      <Filter>Character</Filter>
-    </ClInclude>
-    <ClInclude Include="Snowball.h" />
     <ClInclude Include="SantaCharacter.h">
       <Filter>Character</Filter>
     </ClInclude>
-    <ClInclude Include="IUpdatable.h" />
-    <ClInclude Include="IDrawable.h" />
-    <ClInclude Include="ImpCharacter.h" />
-    <ClInclude Include="ProximityFollower.h" />
-    <ClInclude Include="Rect.h" />
-    <ClInclude Include="Collider.h" />
-    <ClInclude Include="ColliderType.h" />
-    <ClInclude Include="CollisionNotifier.h" />
-    <ClInclude Include="CollisionHandler.h" />
-    <ClInclude Include="ISnowballCollisionNotifier.h" />
+    <ClInclude Include="ImpCharacter.h">
+      <Filter>Character</Filter>
+    </ClInclude>
+    <ClInclude Include="ProximityFollower.h">
+      <Filter>Character</Filter>
+    </ClInclude>
+    <ClInclude Include="TileMap.h">
+      <Filter>Tilemap</Filter>
+    </ClInclude>
+    <ClInclude Include="TileMapData.h">
+      <Filter>Tilemap</Filter>
+    </ClInclude>
+    <ClInclude Include="ISnowballCollisionNotifier.h">
+      <Filter>Collisions</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionNotifier.h">
+      <Filter>Collisions</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionHandler.h">
+      <Filter>Collisions</Filter>
+    </ClInclude>
+    <ClInclude Include="ColliderType.h">
+      <Filter>Collisions</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider.h">
+      <Filter>Collisions</Filter>
+    </ClInclude>
+    <ClInclude Include="IInput.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterShooter.h">
+      <Filter>Projectiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Snowball.h">
+      <Filter>Projectiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Rect.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="IDrawable.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="IUpdatable.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="IShooter.h">
+      <Filter>Projectiles</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="template code">
@@ -81,6 +123,21 @@
     </Filter>
     <Filter Include="Character">
       <UniqueIdentifier>{f83c9cc6-31df-48b6-aac9-8aa13adb9410}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tilemap">
+      <UniqueIdentifier>{91a17dc5-e6df-4ace-abcf-2308a2d62b7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Collisions">
+      <UniqueIdentifier>{b38a559d-c18c-4b60-9cc5-e08f8446c7f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Input">
+      <UniqueIdentifier>{41cbd7dd-587b-46fd-97e0-308bc7962868}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Projectiles">
+      <UniqueIdentifier>{0d98bd8a-9906-4db2-a14c-d16381b794d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Util">
+      <UniqueIdentifier>{aad5668f-c9c0-4c9f-bd99-05f3908bb3da}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
