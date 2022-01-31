@@ -10,6 +10,7 @@
 #include "ProximityFollower.h"
 #include "RandomPlacementGenerator.h"
 #include "SantaCharacter.h"
+#include "ScoreDisplay.h"
 #include "TileMap.h"
 
 namespace Tmpl8 {
@@ -46,6 +47,9 @@ private:
 
 	RandomPlacementGenerator* randomPlacementGenerator;
 	PresentFactory* presentFactory;
+
+	ScoreTracker* scoreTracker;
+	ScoreDisplay* scoreDisplay;
 
 	std::vector<IDrawable*>* drawables;
 	std::vector<IUpdatable*>* updatables;

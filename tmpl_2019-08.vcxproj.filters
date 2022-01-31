@@ -54,6 +54,8 @@
       <Filter>Presents</Filter>
     </ClCompile>
     <ClCompile Include="RandomPlacementGenerator.cpp" />
+    <ClCompile Include="ScoreTracker.cpp" />
+    <ClCompile Include="ScoreDisplay.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
@@ -133,6 +135,8 @@
       <Filter>Presents</Filter>
     </ClInclude>
     <ClInclude Include="RandomPlacementGenerator.h" />
+    <ClInclude Include="ScoreTracker.h" />
+    <ClInclude Include="ScoreDisplay.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="template code">

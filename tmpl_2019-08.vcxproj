@@ -236,6 +236,8 @@
     <ClCompile Include="RandomPlacementGenerator.cpp" />
     <ClCompile Include="Rect.cpp" />
     <ClCompile Include="SantaCharacter.cpp" />
+    <ClCompile Include="ScoreDisplay.cpp" />
+    <ClCompile Include="ScoreTracker.cpp" />
     <ClCompile Include="Snowball.cpp" />
     <ClCompile Include="surface.cpp" />
     <ClCompile Include="template.cpp" />
@@ -265,6 +267,8 @@
     <ClInclude Include="RandomPlacementGenerator.h" />
     <ClInclude Include="Rect.h" />
     <ClInclude Include="SantaCharacter.h" />
+    <ClInclude Include="ScoreDisplay.h" />
+    <ClInclude Include="ScoreTracker.h" />
     <ClInclude Include="Snowball.h" />
     <ClInclude Include="surface.h" />
     <ClInclude Include="template.h" />
