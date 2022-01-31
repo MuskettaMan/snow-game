@@ -53,9 +53,15 @@
     <ClCompile Include="PresentFactory.cpp">
       <Filter>Presents</Filter>
     </ClCompile>
-    <ClCompile Include="RandomPlacementGenerator.cpp" />
-    <ClCompile Include="ScoreTracker.cpp" />
-    <ClCompile Include="ScoreDisplay.cpp" />
+    <ClCompile Include="ScoreDisplay.cpp">
+      <Filter>Score</Filter>
+    </ClCompile>
+    <ClCompile Include="ScoreTracker.cpp">
+      <Filter>Score</Filter>
+    </ClCompile>
+    <ClCompile Include="RandomPlacementGenerator.cpp">
+      <Filter>Presents</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
@@ -134,9 +140,18 @@
     <ClInclude Include="PresentFactory.h">
       <Filter>Presents</Filter>
     </ClInclude>
-    <ClInclude Include="RandomPlacementGenerator.h" />
-    <ClInclude Include="ScoreTracker.h" />
-    <ClInclude Include="ScoreDisplay.h" />
+    <ClInclude Include="ScoreDisplay.h">
+      <Filter>Score</Filter>
+    </ClInclude>
+    <ClInclude Include="ScoreTracker.h">
+      <Filter>Score</Filter>
+    </ClInclude>
+    <ClInclude Include="IPresentCollisionNotifier.h">
+      <Filter>Collisions</Filter>
+    </ClInclude>
+    <ClInclude Include="RandomPlacementGenerator.h">
+      <Filter>Presents</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="template code">
@@ -162,6 +177,9 @@
     </Filter>
     <Filter Include="Presents">
       <UniqueIdentifier>{1c9b90c0-18a3-4bc1-bb50-e2f926246935}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Score">
+      <UniqueIdentifier>{f7811e19-8de9-4efb-8197-a59f851d7b7a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

@@ -1,9 +1,11 @@
 #include "Present.h"
 
-Present::Present(int pointsToReward, int spriteFrame, vec2 position) : pointsToReward(pointsToReward),
-																	   sprite(new Sprite(new Surface("assets/gift_sheet.png"), 3)),
-																	   rect(new Rect(position, { static_cast<float>(sprite->GetWidth()), static_cast<float>(sprite->GetHeight()) })),
-																	   collider(new Collider(*rect, ColliderType::PRESENT, *this))
+Present::Present(int pointsToReward, int spriteFrame, vec2 position, IPresentCollisionNotifier& collisionNotifier) :
+	pointsToReward(pointsToReward),
+	sprite(new Sprite(new Surface("assets/gift_sheet.png"), 3)),
+	rect(new Rect(position, { static_cast<float>(sprite->GetWidth()), static_cast<float>(sprite->GetHeight()) })),
+	collider(new Collider(*rect, ColliderType::PRESENT, *this)),
+	collisionNotifier(collisionNotifier)
 {
 	sprite->SetFrame(spriteFrame);
 }
@@ -22,6 +24,10 @@ int Present::GetPointsToReward() const
 
 void Present::NotifyCollision(ColliderType colliderType)
 {
+	if (colliderType != ColliderType::ALLY)
+		return;
+
+	collisionNotifier.NotifyPresentCollision(*this, colliderType);
 }
 
 void Present::Draw(Surface* screen)

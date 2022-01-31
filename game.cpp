@@ -48,16 +48,16 @@ namespace Tmpl8
 		imp = new ImpCharacter(vec2(500, 500), 0.09f);
 		proximityFollower = new ProximityFollower(imp, character, 250);
 
-		randomPlacementGenerator = new RandomPlacementGenerator(*character);
-		presentFactory = new PresentFactory(*randomPlacementGenerator, collisionHandler);
-
-		presentFactory->GeneratePresent();
-		presentFactory->GeneratePresent();
-		presentFactory->GeneratePresent();
-		presentFactory->GeneratePresent();
-
 		scoreTracker = new ScoreTracker();
 		scoreDisplay = new ScoreDisplay(*scoreTracker);
+
+		randomPlacementGenerator = new RandomPlacementGenerator(*character);
+		presentFactory = new PresentFactory(*randomPlacementGenerator, collisionHandler, *scoreTracker);
+
+		presentFactory->GeneratePresent();
+		presentFactory->GeneratePresent();
+		presentFactory->GeneratePresent();
+		presentFactory->GeneratePresent();
 
 		drawables = new std::vector<IDrawable*>();
 		updatables = new std::vector<IUpdatable*>();

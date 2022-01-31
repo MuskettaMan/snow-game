@@ -1,6 +1,10 @@
 #include "PresentFactory.h"
 
-PresentFactory::PresentFactory(const IPlacementGenerator& placementGenerator, CollisionHandler* collisionHandler) : placementGenerator(placementGenerator), presents(new std::vector<Present*>), collisionHandler(collisionHandler)
+PresentFactory::PresentFactory(const IPlacementGenerator& placementGenerator, CollisionHandler* collisionHandler, ScoreTracker& scoreTracker) :
+	placementGenerator(placementGenerator),
+	presents(new std::vector<Present*>),
+	collisionHandler(collisionHandler),
+	scoreTracker(scoreTracker)
 {
 }
 
@@ -22,7 +26,7 @@ void PresentFactory::Draw(Surface* screen)
 	}
 }
 
-void PresentFactory::GeneratePresent() const
+void PresentFactory::GeneratePresent()
 {
 	std::vector<vec2> positions(presents->size());
 	for (int i = 0; i < presents->size(); ++i)
@@ -31,7 +35,20 @@ void PresentFactory::GeneratePresent() const
 	}
 
 	int presentNumber = rand() % 3;
-	Present* present = new Present((presentNumber + 1) * 100, presentNumber, placementGenerator.GetPlacement(&positions));
+	Present* present = new Present((presentNumber + 1) * 100, presentNumber, placementGenerator.GetPlacement(&positions), *this);
 	collisionHandler->Register(present->GetCollider());
 	presents->push_back(present);
+}
+
+void PresentFactory::NotifyPresentCollision(Present& present, ColliderType colliderType)
+{
+	std::vector<Present*>::iterator result = std::find(presents->begin(), presents->end(), &present);
+
+	if (result == presents->end())
+		return;
+
+	presents->erase(result);
+	collisionHandler->Deregister(present.GetCollider());
+	scoreTracker.IncrementScore(present.GetPointsToReward());
+	delete &present;
 }
