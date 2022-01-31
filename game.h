@@ -1,4 +1,16 @@
 #pragma once
+#include <vector>
+
+#include "CharacterController.h"
+#include "IDrawable.h"
+#include "ImpCharacter.h"
+#include "Input.h"
+#include "IUpdatable.h"
+#include "PresentFactory.h"
+#include "ProximityFollower.h"
+#include "RandomPlacementGenerator.h"
+#include "SantaCharacter.h"
+#include "TileMap.h"
 
 namespace Tmpl8 {
 
@@ -20,6 +32,23 @@ public:
 	static float GetTime();
 private:
 	Surface* screen;
+	Surface* groundSheet;
+	TileMapData* tileMapData;
+	TileMap* tileMap;
+	SantaCharacter* character;
+	CharacterController* controller;
+	Input* input;
+
+	ImpCharacter* imp;
+	ProximityFollower* proximityFollower;
+
+	CollisionHandler* collisionHandler;
+
+	RandomPlacementGenerator* randomPlacementGenerator;
+	PresentFactory* presentFactory;
+
+	std::vector<IDrawable*>* drawables;
+	std::vector<IUpdatable*>* updatables;
 	static float deltaTime;
 	static float time;
 };

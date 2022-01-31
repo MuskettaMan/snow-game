@@ -1,4 +1,4 @@
-#include "game.h"
+#include "Game.h"
 #include "surface.h"
 #include <cstdio> //printf
 #include <iostream>
@@ -18,24 +18,6 @@
 
 namespace Tmpl8
 {
-	Surface* groundSheet;
-	TileMapData* tileMapData;
-	TileMap* tileMap;
-	SantaCharacter* character;
-	CharacterController* controller;
-	Input* input;
-
-	ImpCharacter* imp;
-	ProximityFollower* proximityFollower;
-
-	CollisionHandler* collisionHandler;
-
-	RandomPlacementGenerator* randomPlacementGenerator;
-	PresentFactory* presentFactory;
-
-	std::vector<IDrawable*>* drawables;
-	std::vector<IUpdatable*>* updatables;
-
 	float Game::deltaTime;
 	float Game::time;
 

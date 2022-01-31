@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-#include "game.h"
+#include "Game.h"
 
 void Character::Move(vec2 direction)
 {

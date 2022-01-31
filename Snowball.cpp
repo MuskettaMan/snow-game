@@ -1,6 +1,6 @@
 #include "Snowball.h"
 
-#include "game.h"
+#include "Game.h"
 
 Snowball::Snowball(vec2 origin, vec2 direction, ISnowballCollisionNotifier& snowballCollisionNotifier) : position(origin), velocity(direction.normalized() * Game::GetDeltaTime() * 0.4f), startTime(Game::GetTime()), rect(new Rect()), collider(new Collider(*rect, ColliderType::PROJECTILE, *this)), snowballCollisionNotifier(snowballCollisionNotifier)
 {

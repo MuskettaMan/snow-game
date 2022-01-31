@@ -227,7 +227,7 @@
     <ClCompile Include="CharacterShooter.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="CollisionHandler.cpp" />
-    <ClCompile Include="game.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="ImpCharacter.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Present.cpp" />
@@ -250,7 +250,7 @@
     <ClInclude Include="ColliderType.h" />
     <ClInclude Include="CollisionHandler.h" />
     <ClInclude Include="CollisionNotifier.h" />
-    <ClInclude Include="game.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="IDrawable.h" />
     <ClInclude Include="IInput.h" />
     <ClInclude Include="ImpCharacter.h" />

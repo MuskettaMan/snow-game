@@ -1,6 +1,6 @@
 #include "CharacterShooter.h"
 
-#include "game.h"
+#include "Game.h"
 
 CharacterShooter::CharacterShooter(CollisionHandler* collisionHandler) : fireRate(500), lastFireTime(0), collisionHandler(collisionHandler)
 {
