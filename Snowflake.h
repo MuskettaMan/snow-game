@@ -23,5 +23,8 @@ private:
 	float mass;
 	int radius;
 	bool reachedBottom;
+
+	float ClampScreenSpace(float value, float max);
+	float InvLerp(float a, float b, float v);
 };
 

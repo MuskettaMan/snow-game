@@ -1,5 +1,7 @@
 #include "SnowstormManager.h"
 
+#include <iostream>
+
 #include "Game.h"
 
 SnowstormManager::SnowstormManager() : lastSpawnTime(0), interval(100)
@@ -49,4 +51,6 @@ void SnowstormManager::Update()
 	{
 		snowflakes->erase(snowflakes->begin() + indicesToRemove[i]);
 	}
+
+	std::cout << snowflakes->size() << "\n";
 }
