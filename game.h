@@ -11,6 +11,7 @@
 #include "RandomPlacementGenerator.h"
 #include "SantaCharacter.h"
 #include "ScoreDisplay.h"
+#include "SnowstormManager.h"
 #include "TileMap.h"
 
 namespace Tmpl8 {
@@ -50,6 +51,8 @@ private:
 
 	ScoreTracker* scoreTracker;
 	ScoreDisplay* scoreDisplay;
+
+	SnowstormManager* snowstormManager;
 
 	std::vector<IDrawable*>* drawables;
 	std::vector<IUpdatable*>* updatables;

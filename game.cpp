@@ -51,6 +51,8 @@ namespace Tmpl8
 		scoreTracker = new ScoreTracker();
 		scoreDisplay = new ScoreDisplay(*scoreTracker);
 
+		snowstormManager = new SnowstormManager();
+
 		randomPlacementGenerator = new RandomPlacementGenerator(*character);
 		presentFactory = new PresentFactory(*randomPlacementGenerator, collisionHandler, *scoreTracker);
 
@@ -70,12 +72,14 @@ namespace Tmpl8
 		drawables->push_back(imp);
 		drawables->push_back(character);
 		drawables->push_back(scoreDisplay);
+		drawables->push_back(snowstormManager);
 
 		updatables->push_back(proximityFollower);
 		updatables->push_back(imp);
 		updatables->push_back(character);
 		updatables->push_back(input);
 		updatables->push_back(collisionHandler);
+		updatables->push_back(snowstormManager);
 	}
 	
 	void Game::Shutdown()
@@ -95,6 +99,8 @@ namespace Tmpl8
 		delete collisionHandler;
 
 		delete input;
+
+		delete snowstormManager;
 
 		delete scoreDisplay;
 		delete scoreTracker;

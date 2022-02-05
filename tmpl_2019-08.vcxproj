@@ -239,6 +239,8 @@
     <ClCompile Include="ScoreDisplay.cpp" />
     <ClCompile Include="ScoreTracker.cpp" />
     <ClCompile Include="Snowball.cpp" />
+    <ClCompile Include="Snowflake.cpp" />
+    <ClCompile Include="SnowstormManager.cpp" />
     <ClCompile Include="surface.cpp" />
     <ClCompile Include="template.cpp" />
     <ClCompile Include="TileMap.cpp" />
@@ -271,6 +273,8 @@
     <ClInclude Include="ScoreDisplay.h" />
     <ClInclude Include="ScoreTracker.h" />
     <ClInclude Include="Snowball.h" />
+    <ClInclude Include="Snowflake.h" />
+    <ClInclude Include="SnowstormManager.h" />
     <ClInclude Include="surface.h" />
     <ClInclude Include="template.h" />
     <ClInclude Include="TileMap.h" />
