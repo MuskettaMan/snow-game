@@ -26,6 +26,10 @@ void SnowstormManager::Draw(Surface* screen)
 	}
 }
 
+/**
+ * \brief
+ * TODO: Make use of pooling for optimization.
+ */
 void SnowstormManager::Update()
 {
 	if(Game::GetTime() - (lastSpawnTime + interval) > 0)
@@ -51,6 +55,4 @@ void SnowstormManager::Update()
 	{
 		snowflakes->erase(snowflakes->begin() + indicesToRemove[i]);
 	}
-
-	std::cout << snowflakes->size() << "\n";
 }

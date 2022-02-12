@@ -9,9 +9,7 @@ Snowflake::Snowflake() : position({static_cast<float>(rand() % ScreenWidth), 0})
 
 void Snowflake::Draw(Surface* screen)
 {
-	vec2 topLeft(static_cast<int>(position.x) % ScreenWidth, ClampScreenSpace(position.y, static_cast<float>(ScreenHeight)));
-	
-
+	vec2 topLeft(static_cast<int>(position.x + radius) % ScreenWidth - radius, ClampScreenSpace(position.y, static_cast<float>(ScreenHeight)));
 	vec2 bottomRight(static_cast<int>(topLeft.x + radius) % ScreenWidth, ClampScreenSpace(position.y + radius, static_cast<float>(ScreenHeight)));
 
 	screen->Bar(topLeft.x, topLeft.y, bottomRight.x, bottomRight.y, 0xffffff);
@@ -34,7 +32,7 @@ void Snowflake::Update()
 
 	acceleration *= 0;
 
-	if (position.y > ScreenHeight - radius)
+	if (position.y > ScreenHeight)
 	{
 		reachedBottom = true;
 	}
@@ -47,8 +45,6 @@ bool Snowflake::GetReachedBottom() const
 
 void Snowflake::ApplyForce(vec2 force)
 {
-	//force *= radius;
-
 	acceleration += force;
 }
 
