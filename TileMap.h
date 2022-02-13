@@ -3,6 +3,8 @@
 #include "TileMapData.h"
 #include "IDrawable.h"
 
+using namespace Tmpl8;
+
 class TileMap : public IDrawable
 {
 public:
@@ -11,12 +13,12 @@ public:
 	static const int DATA_AMOUNT = 3;
 
 	TileMap(char map[ROWS][COLS * DATA_AMOUNT], TileMapData& tileMapData);
-	void Draw(Tmpl8::Surface* screen);
+	void Draw(Surface* screen);
 
 private:
 	char map[ROWS][COLS * DATA_AMOUNT];
 	TileMapData& tileMapData;
 
-	void DrawTile(int tx, int ty, Tmpl8::Surface* screen, int x, int y);
+	void DrawTile(int tx, int ty, Surface* screen, int x, int y);
 };
 

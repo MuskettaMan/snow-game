@@ -33,7 +33,12 @@ void CollisionHandler::Update()
 
 	for (int nullIndex : nullIndices)
 	{
-		colliders->erase(colliders->begin() + nullIndex);
+		(*colliders)[nullIndex] = nullptr;
+	}
+	for (int i = colliders->size() - 1; i >= 0; --i)
+	{
+		if ((*colliders)[i] == nullptr)
+			colliders->erase(colliders->begin() + i);
 	}
 }
 

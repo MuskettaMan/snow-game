@@ -12,6 +12,6 @@ public:
 
 private:
 	const Character& character;
-
+	int radius = 150;
 };
 

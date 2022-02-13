@@ -1,5 +1,7 @@
 #include "Present.h"
 
+#include <iostream>
+
 Present::Present(int pointsToReward, int spriteFrame, vec2 position, IPresentCollisionNotifier& collisionNotifier) :
 	pointsToReward(pointsToReward),
 	sprite(new Sprite(new Surface("assets/gift_sheet.png"), 3)),

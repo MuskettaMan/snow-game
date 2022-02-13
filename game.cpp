@@ -56,10 +56,10 @@ namespace Tmpl8
 		randomPlacementGenerator = new RandomPlacementGenerator(*character);
 		presentFactory = new PresentFactory(*randomPlacementGenerator, collisionHandler, *scoreTracker);
 
-		presentFactory->GeneratePresent();
-		presentFactory->GeneratePresent();
-		presentFactory->GeneratePresent();
-		presentFactory->GeneratePresent();
+		for (int i = 0; i < 100; ++i)
+		{
+			presentFactory->GeneratePresent();
+		}
 
 		drawables = new std::vector<IDrawable*>();
 		updatables = new std::vector<IUpdatable*>();
