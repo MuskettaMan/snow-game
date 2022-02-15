@@ -8,6 +8,6 @@ using namespace Tmpl8;
 class IPlacementGenerator
 {
 public:
-	virtual vec2 GetPlacement(std::vector<vec2>* positions) const = 0;
+	virtual vec2 GetPlacement() const = 0;
 };
 

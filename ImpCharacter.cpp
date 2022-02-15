@@ -16,7 +16,7 @@ void ImpCharacter::NotifyCollision(ColliderType colliderType)
 	if (colliderType != ColliderType::PROJECTILE)
 		return;
 
-	std::cout << "Enemy hit by projectile.\n";
+
 }
 
 void ImpCharacter::Draw(Surface* screen)

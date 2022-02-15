@@ -13,7 +13,7 @@ SantaCharacter::~SantaCharacter()
 
 void SantaCharacter::NotifyCollision(ColliderType colliderType)
 {
-	std::cout << "Collision on santa\n";
+
 }
 
 void SantaCharacter::Shoot()

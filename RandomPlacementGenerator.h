@@ -8,7 +8,7 @@ class RandomPlacementGenerator : public IPlacementGenerator
 {
 public:
 	RandomPlacementGenerator(const Character& character);
-	vec2 GetPlacement(std::vector<vec2>* positions) const override;
+	vec2 GetPlacement() const override;
 
 private:
 	const Character& character;

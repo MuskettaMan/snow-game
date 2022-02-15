@@ -64,6 +64,7 @@
     </ClCompile>
     <ClCompile Include="Snowflake.cpp" />
     <ClCompile Include="SnowstormManager.cpp" />
+    <ClCompile Include="EnemySpawner.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
@@ -156,6 +157,7 @@
     </ClInclude>
     <ClInclude Include="Snowflake.h" />
     <ClInclude Include="SnowstormManager.h" />
+    <ClInclude Include="EnemySpawner.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="template code">

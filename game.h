@@ -2,6 +2,7 @@
 #include <vector>
 
 #include "CharacterController.h"
+#include "EnemySpawner.h"
 #include "IDrawable.h"
 #include "ImpCharacter.h"
 #include "Input.h"
@@ -41,8 +42,7 @@ private:
 	CharacterController* controller;
 	Input* input;
 
-	ImpCharacter* imp;
-	ProximityFollower* proximityFollower;
+	EnemySpawner* enemySpawner;
 
 	CollisionHandler* collisionHandler;
 

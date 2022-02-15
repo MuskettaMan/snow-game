@@ -45,8 +45,7 @@ namespace Tmpl8
 		character = new SantaCharacter(vec2(100, 100), 0.2f, collisionHandler);
 		controller = new CharacterController(character, input);
 
-		imp = new ImpCharacter(vec2(500, 500), 0.09f);
-		proximityFollower = new ProximityFollower(imp, character, 250);
+		enemySpawner = new EnemySpawner(*character, *collisionHandler);
 
 		scoreTracker = new ScoreTracker();
 		scoreDisplay = new ScoreDisplay(*scoreTracker);
@@ -56,26 +55,24 @@ namespace Tmpl8
 		randomPlacementGenerator = new RandomPlacementGenerator(*character);
 		presentFactory = new PresentFactory(*randomPlacementGenerator, collisionHandler, *scoreTracker);
 
-		for (int i = 0; i < 100; ++i)
+		for (int i = 0; i < 1; ++i)
 		{
 			presentFactory->GeneratePresent();
 		}
 
 		drawables = new std::vector<IDrawable*>();
 		updatables = new std::vector<IUpdatable*>();
-
-		collisionHandler->Register(&imp->GetCollider());
+		
 		collisionHandler->Register(&character->GetCollider());
 
 		drawables->push_back(tileMap);
 		drawables->push_back(presentFactory);
-		drawables->push_back(imp);
+		drawables->push_back(enemySpawner);
 		drawables->push_back(character);
 		drawables->push_back(scoreDisplay);
 		drawables->push_back(snowstormManager);
 
-		updatables->push_back(proximityFollower);
-		updatables->push_back(imp);
+		updatables->push_back(enemySpawner);
 		updatables->push_back(character);
 		updatables->push_back(input);
 		updatables->push_back(collisionHandler);
@@ -90,8 +87,7 @@ namespace Tmpl8
 		delete presentFactory;
 		delete randomPlacementGenerator;
 
-		delete proximityFollower;
-		delete imp;
+		delete enemySpawner;
 
 		delete controller;
 		delete character;

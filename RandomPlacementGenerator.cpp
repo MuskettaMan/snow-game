@@ -15,7 +15,7 @@ RandomPlacementGenerator::RandomPlacementGenerator(const Character& character) :
 	srand(time(NULL));
 }
 
-vec2 RandomPlacementGenerator::GetPlacement(std::vector<vec2>* positions) const
+vec2 RandomPlacementGenerator::GetPlacement() const
 {
 	std::vector<GridPosition> filteredPositions;
 	GridPosition grid[TileMap::COLS][TileMap::ROWS];

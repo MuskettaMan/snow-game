@@ -28,14 +28,8 @@ void PresentFactory::Draw(Surface* screen)
 
 void PresentFactory::GeneratePresent()
 {
-	std::vector<vec2> positions(presents->size());
-	for (int i = 0; i < presents->size(); ++i)
-	{
-		positions[i] = (*presents)[i]->GetRect()->position;
-	}
-
 	int presentNumber = rand() % 3;
-	Present* present = new Present((presentNumber + 1) * 100, presentNumber, placementGenerator.GetPlacement(&positions), *this);
+	Present* present = new Present((presentNumber + 1) * 100, presentNumber, placementGenerator.GetPlacement(), *this);
 	collisionHandler->Register(present->GetCollider());
 	presents->push_back(present);
 }
@@ -51,4 +45,6 @@ void PresentFactory::NotifyPresentCollision(Present& present, ColliderType colli
 	collisionHandler->Deregister(present.GetCollider());
 	scoreTracker.IncrementScore(present.GetPointsToReward());
 	delete &present;
+
+	GeneratePresent();
 }
