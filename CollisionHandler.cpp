@@ -14,14 +14,10 @@ CollisionHandler::~CollisionHandler()
 
 void CollisionHandler::Update()
 {
-	std::set<int> nullIndices;
 	for (int i = 0; i < colliders->size(); ++i)
 	{
 		for (int j = 0; j < colliders->size(); ++j)
 		{
-			if (colliders->at(i) == nullptr)
-				nullIndices.insert(i);
-
 			// Since we're double iterating over the same collection, if the indices are the same we know that it's the same object.
 			// And we don't have to check twice on the same object for collision.
 			if(i == j ||  colliders->at(i) == nullptr || colliders->at(j) == nullptr)
@@ -30,11 +26,7 @@ void CollisionHandler::Update()
 			colliders->at(i)->Collides(*colliders->at(j));
 		}
 	}
-
-	for (int nullIndex : nullIndices)
-	{
-		(*colliders)[nullIndex] = nullptr;
-	}
+	
 	for (int i = colliders->size() - 1; i >= 0; --i)
 	{
 		if ((*colliders)[i] == nullptr)
