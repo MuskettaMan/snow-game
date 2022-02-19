@@ -6,6 +6,16 @@ CharacterShooter::CharacterShooter(CollisionHandler* collisionHandler) : fireRat
 {
 }
 
+CharacterShooter::~CharacterShooter()
+{
+	for (int i = snowballs.size() - 1; i >= 0; --i)
+	{
+		collisionHandler->Deregister(&snowballs[i]->GetCollider());
+		delete snowballs[i];
+	}
+	snowballs.clear();
+}
+
 void CharacterShooter::Shoot(vec2 origin, vec2 direction)
 {
 	if(lastFireTime + fireRate > Game::GetTime())

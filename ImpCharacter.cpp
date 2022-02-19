@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-ImpCharacter::ImpCharacter(vec2 position, float speed) : Character(position, "assets/enemy_sheet.png", 16, speed), frameCounter(0)
+ImpCharacter::ImpCharacter(vec2 position, float speed, const IEnemyCollisionNotifier& collisionNotifier) : Character(position, "assets/enemy_sheet.png", 16, speed), frameCounter(0), collisionNotifier(collisionNotifier)
 {
 	collider = new Collider(*GetRect(), ColliderType::ENEMY, *this);
 }
@@ -16,7 +16,7 @@ void ImpCharacter::NotifyCollision(ColliderType colliderType)
 	if (colliderType != ColliderType::PROJECTILE)
 		return;
 
-
+	collisionNotifier.NotifyEnemyCollision(*this);
 }
 
 void ImpCharacter::Draw(Surface* screen)

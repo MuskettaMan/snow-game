@@ -20,7 +20,7 @@ void CollisionHandler::Update()
 		{
 			// Since we're double iterating over the same collection, if the indices are the same we know that it's the same object.
 			// And we don't have to check twice on the same object for collision.
-			if(i == j ||  colliders->at(i) == nullptr || colliders->at(j) == nullptr)
+			if(i == j || colliders->at(i) == nullptr || colliders->at(j) == nullptr)
 				continue;
 
 			colliders->at(i)->Collides(*colliders->at(j));

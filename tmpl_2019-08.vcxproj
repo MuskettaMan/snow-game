@@ -258,6 +258,7 @@
     <ClInclude Include="EnemySpawner.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="IDrawable.h" />
+    <ClInclude Include="IEnemyCollisionNotifier.h" />
     <ClInclude Include="IInput.h" />
     <ClInclude Include="ImpCharacter.h" />
     <ClInclude Include="Input.h" />
