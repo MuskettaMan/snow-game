@@ -158,6 +158,7 @@
     <ClInclude Include="Snowflake.h" />
     <ClInclude Include="SnowstormManager.h" />
     <ClInclude Include="EnemySpawner.h" />
+    <ClInclude Include="IEnemyCollisionNotifier.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="template code">
