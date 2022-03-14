@@ -38,7 +38,6 @@ public:
 	 * \param screen The screen to draw to.
 	 */
 	void Draw(Surface* screen) override;
-	void NotifyEnemyCollision(const Character& character) const override;
 
 	/**
 	 * \brief Notifies of an enemy collision.

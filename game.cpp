@@ -42,7 +42,8 @@ namespace Tmpl8
 
 		collisionHandler = new CollisionHandler();
 
-		character = new SantaCharacter(vec2(100, 100), 0.2f, collisionHandler);
+		gameOverBehaviour = new GameOverBehaviour();
+		character = new SantaCharacter(vec2(100, 100), 0.2f, collisionHandler, gameOverBehaviour);
 		controller = new CharacterController(character, input);
 
 		enemySpawner = new EnemySpawner(*character, *collisionHandler);
@@ -71,6 +72,7 @@ namespace Tmpl8
 		drawables->push_back(character);
 		drawables->push_back(scoreDisplay);
 		drawables->push_back(snowstormManager);
+		drawables->push_back(gameOverBehaviour);
 
 		updatables->push_back(enemySpawner);
 		updatables->push_back(character);
@@ -104,6 +106,8 @@ namespace Tmpl8
 		delete tileMap;
 		delete tileMapData;
 		delete groundSheet;
+
+		delete gameOverBehaviour;
 	}
 
 	void Game::Tick(float deltaTime)

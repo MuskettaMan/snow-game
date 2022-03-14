@@ -1,7 +1,7 @@
 #include "SantaCharacter.h"
 #include <iostream>
 
-SantaCharacter::SantaCharacter(vec2 position, float speed, CollisionHandler* collisionHandler) : Character(position, "assets/character_sheet.png", 7, speed), shooter(new CharacterShooter(collisionHandler)), movementFrameCounter(0)
+SantaCharacter::SantaCharacter(vec2 position, float speed, CollisionHandler* collisionHandler, GameOverBehaviour* gameOverBehaviour) : Character(position, "assets/character_sheet.png", 7, speed), shooter(new CharacterShooter(collisionHandler)), movementFrameCounter(0), gameOverBehaviour(gameOverBehaviour)
 {
 	collider = new Collider(*GetRect(), ColliderType::ALLY, *this);
 }
@@ -13,7 +13,10 @@ SantaCharacter::~SantaCharacter()
 
 void SantaCharacter::NotifyCollision(ColliderType colliderType)
 {
+	if (colliderType != ColliderType::ENEMY)
+		return;
 
+	gameOverBehaviour->SetGameOver();
 }
 
 void SantaCharacter::Shoot()

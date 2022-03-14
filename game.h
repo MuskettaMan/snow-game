@@ -116,6 +116,11 @@ private:
 	std::vector<IUpdatable*>* updatables;
 
 	/**
+	 * \brief Handles what happens when the game is over.
+	 */
+	GameOverBehaviour* gameOverBehaviour;
+
+	/**
 	 * \brief The delta time of the current frame.
 	 */
 	static float deltaTime;

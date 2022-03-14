@@ -229,6 +229,7 @@
     <ClCompile Include="CollisionHandler.cpp" />
     <ClCompile Include="EnemySpawner.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameOverBehaviour.cpp" />
     <ClCompile Include="ImpCharacter.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Present.cpp" />
@@ -257,6 +258,7 @@
     <ClInclude Include="CollisionNotifier.h" />
     <ClInclude Include="EnemySpawner.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameOverBehaviour.h" />
     <ClInclude Include="IDrawable.h" />
     <ClInclude Include="IEnemyCollisionNotifier.h" />
     <ClInclude Include="IInput.h" />
